@@ -1,11 +1,10 @@
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SwordAttack : MonoBehaviour
 {
-    [SerializeField]
-    HealthBar healthBar;
 
     public Collider2D swordCollider;
     Vector2 rightAttackOffset;
@@ -43,6 +42,8 @@ public class SwordAttack : MonoBehaviour
             if (enemy != null)
             {
                 enemy.Health -= damage;
+                enemy.SetHealthBar(enemy.Health);
+
                 Debug.Log("Hit");
 
                 //khi b? ?ánh t?o l?c ??y ra nhân v?t

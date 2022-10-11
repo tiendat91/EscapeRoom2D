@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    HealthBar healthBar;
 
     public float health = 5;
     Animator animator;
@@ -21,7 +23,7 @@ public class Enemy : MonoBehaviour
 
             health = value;
 
-            if (health < 0)
+            if (health <= 0)
             {
                 Defeated();
             }
@@ -35,6 +37,11 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         animator.SetBool("IsAlive", isAlive);
+        healthBar.SetMaxHealth(health);
+    }
+    public void SetHealthBar(float healthX)
+    {
+        healthBar.SetHealth(healthX);
     }
     public void Defeated()
     {
