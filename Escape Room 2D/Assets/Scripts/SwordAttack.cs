@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SwordAttack : MonoBehaviour
 {
+    [SerializeField]
+    HealthBar healthBar;
+
     public Collider2D swordCollider;
     Vector2 rightAttackOffset;
     public float damage = 3;
@@ -40,6 +43,12 @@ public class SwordAttack : MonoBehaviour
             if (enemy != null)
             {
                 enemy.Health -= damage;
+                Debug.Log("Hit");
+
+                //khi b? ?ánh t?o l?c ??y ra nhân v?t
+                Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
+                Vector2 direction = (Vector2)(parentPosition - collision.gameObject.transform.position).normalized;
+                enemy.rigidbody.AddForce(direction * 500);
             }
         }
     }
