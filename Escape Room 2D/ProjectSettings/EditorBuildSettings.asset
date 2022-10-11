@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/JungleMap.unity
+    guid: 3b4a548051f52614d8fd388649e45a61
+  - enabled: 1
     path: Assets/Scenes/DesertMap.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/CityMap.unity
+    guid: 639d4712da25dd64098fdac9917a8ee4
   m_configObjects: {}
