@@ -382,9 +382,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a600dc2b442e64aa3aa207f667e49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   rigidbody: {fileID: 0}
   health: 5
 --- !u!1 &6047700135532396508
+=======
+  healthBar: {fileID: 5751901886193415850}
+  health: 5
+  damage: 1
+  moveSpeed: 500
+  knockbackForce: 100
+  amountToPool: 10
+  enemy: {fileID: 5800687337241283077}
+  rigidbody: {fileID: 2313780245000407206}
+--- !u!1 &7418194621327144172
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
