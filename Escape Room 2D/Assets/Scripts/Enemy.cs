@@ -15,14 +15,10 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 500f;
     public float knockbackForce = 100f;
 
-    //public static Enemy instance;
-    //public int amountToPool = 10;
-    //private List<GameObject> list = new List<GameObject>();
-    //[SerializeField]
-    //public GameObject enemy;
-
     Animator animator;
     bool isAlive = true;
+
+    [SerializeField]
     public Rigidbody2D rigidbody;
 
 
@@ -30,8 +26,9 @@ public class Enemy : MonoBehaviour
     {
         set
         {
-            if (value < health) //value gi?m xu?ng chuy?n tr?ng thái hit
+            if (value < health)
             {
+                Debug.Log("Drop Blood");
                 animator.SetTrigger("hit");
             }
 

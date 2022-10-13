@@ -35,72 +35,43 @@ public class CharacterBehaviourScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    //private void FixedUpdate()
-    //{
-    //    if (canMove)
-    //    {
-    //        //if movement input is not 0, try to move
-    //        if (movementInput != Vector2.zero)
-    //        {
-    //            bool success = TryMove(movementInput);
-
-    //            //nhân v?t tr??t trên v?t th? khi va ch?m -> movement more smoother 
-    //            if (!success && movementInput.x > 0)//x?y ra collision, th? di chuy?n theo h??ng khác (x ho?c y)
-    //            {
-    //                success = TryMove(new Vector2(movementInput.x, 0));
-    //            }
-    //            if (!success && movementInput.y > 0)
-    //            {
-    //                success = TryMove(new Vector2(0, movementInput.y));
-    //            }
-    //            animator.SetBool("IsMoving", success);
-    //        }
-    //        else
-    //        {
-    //            animator.SetBool("IsMoving", false);
-    //        }
-
-    //        //Set direction of sprite to movement direction
-    //        if (movementInput.x < 0)
-    //        {
-    //            spriteRenderer.flipX = true;
-    //        }
-    //        else if (movementInput.x > 0)
-    //        {
-    //            spriteRenderer.flipX = false;
-    //        }
-    //    }
-    //}
-
     private void FixedUpdate()
     {
-        //Move animation and add velocity
-
-        //Accelerate the player while run direction is pressed BUT dont run faster than max speed
-        if (canMove == true && movementInput != Vector2.zero)
+        if (canMove)
         {
-            rb.velocity = Vector2.ClampMagnitude(rb.velocity + (movementInput * moveSpeed * Time.deltaTime), maxSpeed);
-
-            //Whether looking left or right
-            if (movementInput.x > 0)
+            //if movement input is not 0, try to move
+            if (movementInput != Vector2.zero)
             {
-                spriteRenderer.flipX = false;
+                bool success = TryMove(movementInput);
+
+                //nhan vat truot tren vat khi va cham -> movement more smoother 
+                if (!success && movementInput.x > 0)//xay ra collision thi di chuyen theo huong khac
+                {
+                    success = TryMove(new Vector2(movementInput.x, 0));
+                }
+                if (!success && movementInput.y > 0)
+                {
+                    success = TryMove(new Vector2(0, movementInput.y));
+                }
+                animator.SetBool("IsMoving", success);
             }
-            else if (movementInput.x < 0)
+            else
+            {
+                animator.SetBool("IsMoving", false);
+            }
+
+            //Set direction of sprite to movement direction
+            if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
             }
-
-            IsMoving = true;
-        }
-        else
-        {
-            //No movement so interpolate velocity towards 0
-            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, idleFriction);
-            IsMoving = false;
-
+            else if (movementInput.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
         }
     }
+
     private bool TryMove(Vector2 direction)
     {
         if (direction != Vector2.zero)

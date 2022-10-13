@@ -46,7 +46,7 @@ public class SwordAttack : MonoBehaviour
                 Debug.Log("Hit");
                 enemy.SetHealthBar(enemy.Health);
 
-                //khi b? ?ánh t?o l?c ??y ra nhân v?t
+                //knockback to enemy
                 Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
                 Vector2 direction = (Vector2)(parentPosition - collision.gameObject.transform.position).normalized;
                 enemy.GetComponent<Rigidbody2D>().AddForce(direction * 500);
