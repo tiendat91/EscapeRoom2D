@@ -35,11 +35,11 @@ public class Spawner : MonoBehaviour
         }
         if (timer > 1)
         {
-            Vector3 location = new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), -Camera.main.transform.position.z);
-            Vector3 worldLocation = Camera.main.ScreenToWorldPoint(location);
+            //Vector3 location = new Vector3(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY), -Camera.main.transform.position.z);
+            //Vector3 worldLocation = Camera.main.ScreenToWorldPoint(location);
 
-            Instantiate(prefabs, worldLocation, Quaternion.identity);
-            timer -= 5;
+            //Instantiate(prefabs, worldLocation, Quaternion.identity);
+            //timer -= 5;
         }
 
     }
