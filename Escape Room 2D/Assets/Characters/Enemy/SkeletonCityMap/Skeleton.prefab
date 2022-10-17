@@ -354,6 +354,7 @@ MonoBehaviour:
   moveSpeed: 500
   knockbackForce: 100
   rigidbody: {fileID: 0}
+  bossPrefab: {fileID: 0}
 --- !u!1 &2766563766955082185
 GameObject:
   m_ObjectHideFlags: 0

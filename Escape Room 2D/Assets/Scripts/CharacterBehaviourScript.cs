@@ -28,6 +28,7 @@ public class CharacterBehaviourScript : MonoBehaviour
     Animator animator;
 
     bool canMove = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
