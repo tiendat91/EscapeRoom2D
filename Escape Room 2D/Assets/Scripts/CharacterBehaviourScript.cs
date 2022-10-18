@@ -26,6 +26,7 @@ public class CharacterBehaviourScript : MonoBehaviour
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     SpriteRenderer spriteRenderer;
     Animator animator;
+    public DamageableCharacter damageableCharacter;
 
     bool canMove = true;
 
@@ -34,6 +35,7 @@ public class CharacterBehaviourScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        damageableCharacter = GetComponent<DamageableCharacter>();
     }
 
     private void FixedUpdate()

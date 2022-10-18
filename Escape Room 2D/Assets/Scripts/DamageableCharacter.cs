@@ -121,7 +121,7 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
 
         //Make sure the slime is alive at the start of its scipts
-        animator.SetBool("isAlive", isAlive);
+        animator.SetBool("IsAlive", isAlive);
         rigidbody = GetComponent<Rigidbody2D>();
         physicsCollider = GetComponent<Collider2D>();
     }
