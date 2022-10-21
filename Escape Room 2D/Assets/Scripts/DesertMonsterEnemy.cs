@@ -9,6 +9,9 @@ public class DesertMonsterEnemy : MonoBehaviour
     HealthBar healthBar;
 
     Animator animator;
+    public float health = 8;
+    bool isAlive = true;
+    public Rigidbody2D rigidbody;
     public float Health
     {
         set
@@ -28,9 +31,6 @@ public class DesertMonsterEnemy : MonoBehaviour
         get { return health; }
 
     }
-    public float health = 8;
-    bool isAlive = true;
-    public Rigidbody2D rigidbody;
 
     private void Start()
     {
