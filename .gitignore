@@ -9,6 +9,7 @@
 /Escape Room 2D/[Bb]uilds/
 /Escape Room 2D/[Ll]ogs/
 /Escape Room 2D/[Mm]emoryCaptures/
+/Escape Room 2D/[Uu]ser[Ss]ettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/Escape Room 2D/[Aa]ssets/**/*.meta

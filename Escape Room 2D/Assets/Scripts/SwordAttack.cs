@@ -1,10 +1,11 @@
-using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SwordAttack : MonoBehaviour
 {
+    [SerializeField]
+    HealthBar healthBar;
 
     public Collider2D swordCollider;
     Vector2 rightAttackOffset;
@@ -42,14 +43,13 @@ public class SwordAttack : MonoBehaviour
             if (enemy != null)
             {
                 enemy.Health -= damage;
+                Debug.Log("Hit");
                 enemy.SetHealthBar(enemy.Health);
 
-                Debug.Log("Hit");
-
-                //khi b? ?ánh t?o l?c ??y ra nhân v?t
+                //knockback to enemy
                 Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
                 Vector2 direction = (Vector2)(parentPosition - collision.gameObject.transform.position).normalized;
-                enemy.rigidbody.AddForce(direction * 500);
+                enemy.GetComponent<Rigidbody2D>().AddForce(direction * 500);
             }
         }
     }
