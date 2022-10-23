@@ -70,6 +70,7 @@ public class DesertEnemy : MonoBehaviour
                 //Knockback is in direction of swordCollider towards collider
                 //Vector2 knockback = direction * knockbackForce;
 
+                animator.SetTrigger("attack");
                 damageableCharacter.OnHit(damage);
             }
         }
