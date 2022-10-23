@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2944955526203141869}
   - component: {fileID: 1385538932159421931}
   - component: {fileID: 5660491375351197377}
-  - component: {fileID: 8039043222282661293}
   - component: {fileID: 960395351994960872}
   m_Layer: 0
   m_Name: DesertMonster
@@ -146,21 +145,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8039043222282661293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4672324708624284378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f231ddb4f1ffef4e8790c76d777b7d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  health: 8
-  rb: {fileID: 0}
 --- !u!114 &960395351994960872
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3248433669219617572}
   - component: {fileID: 2077074989134244050}
   - component: {fileID: 6617451941045012836}
-  - component: {fileID: 8261106855580268554}
   - component: {fileID: 6705175280129623769}
   m_Layer: 0
   m_Name: DesertBoss
@@ -146,21 +145,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8261106855580268554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5661066108458271918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b71e2696ba25f884b9e4d261069f6d79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  health: 8
-  rb: {fileID: 0}
 --- !u!114 &6705175280129623769
 MonoBehaviour:
   m_ObjectHideFlags: 0
