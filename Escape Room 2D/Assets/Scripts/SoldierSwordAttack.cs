@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SoldierSwordAttack : MonoBehaviour
 {
+    [SerializeField]
+    HealthBar healthBar;
+
     public Collider2D swordCollider;
     public float damage = 2f;
     Vector2 rightAttackOffset;
@@ -22,7 +25,7 @@ public class SoldierSwordAttack : MonoBehaviour
     public void AttackLeft()
     {
         swordCollider.enabled = true;
-        transform.localPosition = new Vector2(rightAttackOffset.x * -1, rightAttackOffset.y);
+        transform.localPosition = new Vector3(rightAttackOffset.x * -1, rightAttackOffset.y);
     }
 
     public void StopAttack()
@@ -40,7 +43,7 @@ public class SoldierSwordAttack : MonoBehaviour
             if (enemy != null)
             {
                 enemy.Health -= damage;
-                enemy.SetHealthBar(enemy.Health);
+                //enemy.SetHealthBar(enemy.Health);
 
                 //khi b? ?ánh t?o l?c ??y ra nhân v?t
                 //Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
