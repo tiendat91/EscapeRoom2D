@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fc419b4e0963b429e3494406f4b0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   swordCollider: {fileID: 758957338229930511}
   damage: 2
 --- !u!1 &4539173193798239642
@@ -88,6 +89,7 @@ GameObject:
   - component: {fileID: 48814210529754588}
   - component: {fileID: 6251856880468227110}
   - component: {fileID: 4059295412250272825}
+  - component: {fileID: 8404233754440052690}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Player
@@ -253,6 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  maxSpeed: 8
+  idleFriction: 0.9
   collisionOffset: 0.05
   movementFilter:
     useTriggers: 0
@@ -289,3 +293,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8404233754440052690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539173193798239642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb219a72e3d45584db5a2540dfa4ae45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 8
+  targetable: 1
+  disableSimulation: 1
+  rb: {fileID: 0}

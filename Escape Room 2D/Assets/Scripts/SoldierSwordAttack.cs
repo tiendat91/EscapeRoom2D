@@ -39,16 +39,22 @@ public class SoldierSwordAttack : MonoBehaviour
         {
             //damage to enemy
             DesertEnemy enemy = other.GetComponent<DesertEnemy>();
+            DesertDamageableCharacter damageableCharacter = other.GetComponent<DesertDamageableCharacter>();
 
             if (enemy != null)
             {
-                enemy.Health -= damage;
+                //enemy.Health -= damage;
                 //enemy.SetHealthBar(enemy.Health);
 
                 //khi b? ?ánh t?o l?c ??y ra nhân v?t
                 //Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
                 //Vector2 direction = (Vector2)(parentPosition - collision.gameObject.transform.position).normalized;
                 //enemy.rigidbody.AddForce(direction * 500);
+            }
+
+            if (damageableCharacter != null)
+            {
+                damageableCharacter.Health -= damage;
             }
         }
     }
