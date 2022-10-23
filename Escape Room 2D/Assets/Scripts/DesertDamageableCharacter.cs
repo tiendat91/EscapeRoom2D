@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class DesertDamageableCharacter : MonoBehaviour, IDamageable
 {
+    [SerializeField]
+    HealthBar healthBar;
+
     Animator animator;
     public float health = 8f;
     public bool targetable = true;
@@ -22,6 +25,7 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
             }
 
             health = value;
+            SetHealthBar(value);
 
             if (health <= 0)
             {
@@ -53,6 +57,12 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("isAlive", isAlive);
         physicCollider = GetComponent<Collider2D>();
+        healthBar.SetMaxHealth(health);
+    }
+
+    public void SetHealthBar(float healthX)
+    {
+        healthBar.SetHealth(healthX);
     }
 
     public void Defeated()
