@@ -11,7 +11,11 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
     Animator animator;
     public float health = 8f;
     public bool targetable = true;
+    public bool invincible = true;
     public bool disableSimulation = false;
+    public bool canTurnInvincible = false;
+    public float invincibilityTime = 0.25f;
+    private float invincibleTimeElapsed = 0;
     bool isAlive = true;
     public Rigidbody2D rb;
     Collider2D physicCollider;
@@ -49,7 +53,21 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
             physicCollider.enabled = true;
         }
     }
-    public bool Invincible { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public bool Invincible
+    {
+        get
+        {
+            return invincible;
+        }
+        set
+        {
+            invincible = value;
+            if (invincible)
+            {
+                invincibleTimeElapsed = 0f;
+            }
+        }
+    }
 
     private void Start()
     {
@@ -74,18 +92,53 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
 
     public void OnHit(float damage, Vector2 knockback)
     {
-        Health -= damage;
+        if (!Invincible)
+        {
+            Health -= damage;
 
-        rb.AddForce(knockback, ForceMode2D.Impulse);
+            //Apply force to the slime
+            //Impulse for instantaneous forces
+            rb.AddForce(knockback, ForceMode2D.Impulse);
+
+            if (canTurnInvincible)
+            {
+                //Activate Invincibility and timer
+                Invincible = true;
+            }
+
+        }
     }
 
     public void OnHit(float damage)
     {
-        Health -= damage;
+        if (!Invincible)
+        {
+            Health -= damage;
+
+            if (canTurnInvincible)
+            {
+                //Activate Invincibility and timer
+                Invincible = true;
+            }
+
+        }
     }
 
     public void OnObjectDestroyed()
     {
         Destroy(gameObject);
+    }
+
+    public void FixedUpdate()
+    {
+        if (Invincible)
+        {
+            invincibleTimeElapsed += Time.deltaTime;
+
+            if (invincibleTimeElapsed > invincibilityTime)
+            {
+                Invincible = false;
+            }
+        }
     }
 }

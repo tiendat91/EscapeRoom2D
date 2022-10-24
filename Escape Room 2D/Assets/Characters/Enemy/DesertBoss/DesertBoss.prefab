@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 6899013279602304712}
-  health: 8
+  health: 10
   targetable: 1
   disableSimulation: 0
   rb: {fileID: 0}
