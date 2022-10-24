@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DesertEnemy : MonoBehaviour
 {
     public float damage = 1f;
-    public float knockbackForce = 15f;
+    public float knockbackForce = 10f;
     public float moveSpeed = 500f;
     public DetectionZone detectionZone;
     Rigidbody2D rb;
@@ -65,13 +65,13 @@ public class DesertEnemy : MonoBehaviour
             if (damageableCharacter != null)
             {
                 //Offset for collision detection changes the direction where the force comes from
-                //Vector2 direction = (other.transform.position - transform.position).normalized;
+                Vector2 direction = (other.transform.position - transform.position).normalized;
 
                 //Knockback is in direction of swordCollider towards collider
-                //Vector2 knockback = direction * knockbackForce;
+                Vector2 knockback = direction * knockbackForce;
 
                 animator.SetTrigger("attack");
-                damageableCharacter.OnHit(damage);
+                damageableCharacter.OnHit(damage, knockback);
             }
         }
     }
