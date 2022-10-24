@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ce6d4bd45af7469c6cf946e291326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
+  healthText: {fileID: 444200029418737254}
   disableSimulation: 0
   canTurnInvincible: 0
   invincibilityTime: 0.25
@@ -400,8 +400,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005341848, y: 0.029322397}
-  m_Size: {x: 0.27487057, y: 0.27487057}
+  m_Offset: {x: -0.00380073, y: 0.037028354}
+  m_Size: {x: 0.16698587, y: 0.16698639}
   m_Direction: 0
 --- !u!1 &2439853689072097573
 GameObject:
