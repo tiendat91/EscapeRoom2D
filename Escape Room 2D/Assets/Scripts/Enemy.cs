@@ -79,17 +79,17 @@ public class Enemy : MonoBehaviour
         Debug.Log("Destroyed");
     }
 
-    private void FixedUpdate()
-    {
+    //private void FixedUpdate()
+    //{
 
-        if (damageableCharacter.Targetable && detectionZone.detectedObjs.Count > 0)
-        {
-            Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
+    //    if (damageableCharacter.Targetable && detectionZone.detectedObjs.Count > 0)
+    //    {
+    //        Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
 
-            //Move towards detected object
-            rigidbody.AddForce(direction * moveSpeed * Time.deltaTime);
-        }
-    }
+    //        //Move towards detected object
+    //        rigidbody.AddForce(direction * moveSpeed * Time.deltaTime);
+    //    }
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
