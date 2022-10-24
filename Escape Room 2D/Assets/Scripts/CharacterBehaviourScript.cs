@@ -1,10 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class CharacterBehaviourScript : MonoBehaviour
 {
+    [SerializeField]
+    TextMeshProUGUI bloodItem;
+    [SerializeField]
+    TextMeshProUGUI manaItem;
+    [SerializeField]
+    TextMeshProUGUI coin;
+    [SerializeField]
+    ManaBar ManaBar;
+
+    int countBloodItem = 0;
+    int countManaItem = 0;
+    int countCoin = 0;
+
     bool IsMoving
     {
         set
@@ -36,6 +52,44 @@ public class CharacterBehaviourScript : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         damageableCharacter = GetComponent<DamageableCharacter>();
+    }
+    private void Update()
+    {
+        bloodItem.text = "X " + countBloodItem;
+        manaItem.text = "X " + countManaItem;
+        coin.text = "X " + countCoin;
+        //USING ITEMS
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log("Using blood item");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (countManaItem > 0)
+            {
+                Debug.Log("Using mana item");
+                ManaBar.SetTimeMana(10);
+                ManaBar.TurnTimerOn();
+                SetSkillUp();
+                countManaItem -= 1;
+            }
+
+        }
+
+    }
+
+    void SetSkillUp()
+    {
+        spriteRenderer.color = UnityEngine.Color.blue;
+        gameObject.transform.localScale = new Vector2(0.8f, 0.8f);
+        swordAttack.damage = 4;
+    }
+
+    public void SetSkillDown()
+    {
+        spriteRenderer.color = UnityEngine.Color.white;
+        gameObject.transform.localScale = new Vector2(1.2f, 1.2f);
+        swordAttack.damage = 2;
     }
 
     private void FixedUpdate()
@@ -73,6 +127,7 @@ public class CharacterBehaviourScript : MonoBehaviour
                 spriteRenderer.flipX = false;
             }
         }
+
     }
 
     private bool TryMove(Vector2 direction)
@@ -138,5 +193,24 @@ public class CharacterBehaviourScript : MonoBehaviour
     void UnLockMovement()
     {
         canMove = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ManaItem")
+        {
+            Destroy(collision.gameObject);
+            countManaItem += 1;
+        }
+        if (collision.gameObject.tag == "BloodItem")
+        {
+            Destroy(collision.gameObject);
+            countBloodItem += 1;
+        }
+        if (collision.gameObject.tag == "Coin")
+        {
+            Destroy(collision.gameObject);
+            countCoin += 1;
+        }
     }
 }

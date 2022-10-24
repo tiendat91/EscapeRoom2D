@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 7658938231051570559}
-  health: 15
+  health: 10
   damage: 1
   moveSpeed: 10
   knockbackForce: 10

@@ -133,6 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fd4b1739f774a4ea4c4f3381396e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodItem: {fileID: 0}
+  manaItem: {fileID: 0}
+  coin: {fileID: 0}
+  ManaBar: {fileID: 0}
   moveSpeed: 1
   collisionOffset: 0.05
   movementFilter:

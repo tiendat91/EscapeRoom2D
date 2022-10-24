@@ -93,6 +93,8 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Va Cham");
+
         Collider2D collider = collision.collider;
         IDamageable damageable = collider.GetComponent<IDamageable>();
         if (damageable != null)
@@ -106,7 +108,6 @@ public class Enemy : MonoBehaviour
             //After making sure the collider has a script that implements IDamageble, we can run the OnHit implementation and pass
             //our Vector2 force
             damageable.OnHit(damage, knockback);
-            Debug.Log("Bi Danh");
         }
     }
 
