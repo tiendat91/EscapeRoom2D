@@ -14,10 +14,12 @@ public class SoldierController : MonoBehaviour
         }
     }
 
-    public float moveSpeed = 8f;
+    public float moveSpeed = 1f;
     public float maxSpeed = 8f;
     public float idleFriction = 0.9f;
     public float collisionOffset = 0.05f;
+
+
     public ContactFilter2D movementFilter;
     public SoldierSwordAttack swordAttack;
 
@@ -41,31 +43,38 @@ public class SoldierController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Move animation and add velocity
-
-        //Accelerate the player while run direction is pressed BUT dont run faster than max speed
-        if (canMove == true && movementInput != Vector2.zero)
+        if (canMove)
         {
-            rb.velocity = Vector2.ClampMagnitude(rb.velocity + (movementInput * moveSpeed * Time.deltaTime), maxSpeed);
-
-            //Whether looking left or right
-            if (movementInput.x > 0)
+            //if movement input is not 0, try to move
+            if (movementInput != Vector2.zero)
             {
-                spriteRenderer.flipX = false;
+                bool success = TryMove(movementInput);
+
+                //nhan vat truot tren vat khi va cham -> movement more smoother 
+                if (!success && movementInput.x > 0)//xay ra collision thi di chuyen theo huong khac
+                {
+                    success = TryMove(new Vector2(movementInput.x, 0));
+                }
+                if (!success && movementInput.y > 0)
+                {
+                    success = TryMove(new Vector2(0, movementInput.y));
+                }
+                animator.SetBool("IsMoving", success);
             }
-            else if (movementInput.x < 0)
+            else
+            {
+                animator.SetBool("IsMoving", false);
+            }
+
+            //Set direction of sprite to movement direction
+            if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
             }
-
-            IsMoving = true;
-        }
-        else
-        {
-            //No movement so interpolate velocity towards 0
-            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, idleFriction);
-            IsMoving = false;
-
+            else if (movementInput.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
         }
     }
 
@@ -86,11 +95,12 @@ public class SoldierController : MonoBehaviour
                 return true;
             }
             return false;
-        } else
+        }
+        else
         {
             return false;
         }
-        
+
     }
 
     void OnMove(InputValue movementValue)
@@ -110,7 +120,8 @@ public class SoldierController : MonoBehaviour
         if (spriteRenderer.flipX)
         {
             swordAttack.AttackLeft();
-        } else
+        }
+        else
         {
             swordAttack.AttackRight();
         }

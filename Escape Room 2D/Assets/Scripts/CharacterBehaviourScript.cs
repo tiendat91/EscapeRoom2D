@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,12 +14,15 @@ public class CharacterBehaviourScript : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI manaItem;
     [SerializeField]
+    TextMeshProUGUI keyItem;
+    [SerializeField]
     TextMeshProUGUI coin;
     [SerializeField]
     ManaBar ManaBar;
 
     int countBloodItem = 0;
     int countManaItem = 0;
+    int countKeyItem = 0;
     int countCoin = 0;
 
     bool IsMoving
@@ -29,12 +33,20 @@ public class CharacterBehaviourScript : MonoBehaviour
             animator.SetBool("IsMoving", isMoving);
         }
     }
-    public float moveSpeed = 150f;
-    public float collisionOffset = 0.05f;
-    public ContactFilter2D movementFilter;
-    public SwordAttack swordAttack;
+
+
+    public float moveSpeed = 1.2f;
     public float maxSpeed = 8f;
     public float idleFriction = 0.9f;
+    public float collisionOffset = 0.05f;
+
+    float TimeLeft;
+    public bool TimerOn = false;
+    bool inRangeOpenChest;
+
+
+    public ContactFilter2D movementFilter;
+    public SwordAttack swordAttack;
     bool isMoving = false;
 
     Vector2 movementInput = Vector2.zero;
@@ -58,6 +70,8 @@ public class CharacterBehaviourScript : MonoBehaviour
         bloodItem.text = "X " + countBloodItem;
         manaItem.text = "X " + countManaItem;
         coin.text = "X " + countCoin;
+        keyItem.text = "X " + countKeyItem;
+
         //USING ITEMS
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -69,19 +83,38 @@ public class CharacterBehaviourScript : MonoBehaviour
             {
                 Debug.Log("Using mana item");
                 ManaBar.SetTimeMana(10);
+                TimeLeft = 10;
+                TimerOn = true;
                 ManaBar.TurnTimerOn();
                 SetSkillUp();
                 countManaItem -= 1;
             }
-
         }
+
+        //Count time using mana
+        if (TimerOn)
+        {
+            if (TimeLeft > 0)
+            {
+                TimeLeft -= Time.deltaTime;
+            }
+            else
+            {
+                TimerOn = false;
+                SetSkillDown();
+            }
+        }
+
+        //Press R to open chest
+
 
     }
 
     void SetSkillUp()
     {
-        spriteRenderer.color = UnityEngine.Color.blue;
-        gameObject.transform.localScale = new Vector2(0.8f, 0.8f);
+        spriteRenderer.color = UnityEngine.Color.yellow;
+        gameObject.transform.localScale = new Vector2(1.4f, 1.4f);
+        moveSpeed = (float)(moveSpeed * 1.5);
         swordAttack.damage = 4;
     }
 
@@ -89,6 +122,7 @@ public class CharacterBehaviourScript : MonoBehaviour
     {
         spriteRenderer.color = UnityEngine.Color.white;
         gameObject.transform.localScale = new Vector2(1.2f, 1.2f);
+        moveSpeed = (float)(moveSpeed / 1.5);
         swordAttack.damage = 2;
     }
 
@@ -127,6 +161,14 @@ public class CharacterBehaviourScript : MonoBehaviour
                 spriteRenderer.flipX = false;
             }
         }
+        if (inRangeOpenChest)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Debug.Log("Nhan mo ruong");
+            }
+        }
+
 
     }
 
@@ -212,5 +254,23 @@ public class CharacterBehaviourScript : MonoBehaviour
             Destroy(collision.gameObject);
             countCoin += 1;
         }
+        if (collision.gameObject.tag == "Key")
+        {
+            Destroy(collision.gameObject);
+            countKeyItem += 1;
+        }
+        if (collision.gameObject.tag == "Chest")
+        {
+            inRangeOpenChest = true;
+        }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Chest")
+        {
+            inRangeOpenChest = false;
+        }
+    }
+
+
 }

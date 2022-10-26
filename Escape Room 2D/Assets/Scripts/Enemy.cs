@@ -111,5 +111,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Chest")
+        {
+            Debug.Log("Nguoi dang cham vao ruong");
+        }
+    }
+
 
 }
