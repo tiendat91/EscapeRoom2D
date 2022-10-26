@@ -30,7 +30,6 @@ public class ManaBar : MonoBehaviour
             else
             {
                 TimerOn = false;
-                hero.SetSkillDown();
             }
 
         }
