@@ -13,6 +13,7 @@ public class Chest : MonoBehaviour
     public Canvas textPress;
     [SerializeField]
     Sprite newSprite;
+    [SerializeField]
     GameObject key;
 
 
@@ -23,6 +24,7 @@ public class Chest : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         textPress.enabled = false;
+        key.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,8 +36,8 @@ public class Chest : MonoBehaviour
     public void ChestOpen()
     {
         spriteRenderer.sprite = newSprite;
+        key.SetActive(true);
         Debug.Log("Doi Sprite");
-        PopKey();
     }
 
     public void PopKey()
