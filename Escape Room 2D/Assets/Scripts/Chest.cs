@@ -40,11 +40,7 @@ public class Chest : MonoBehaviour
         {
             key.SetActive(true);
         }
-        Debug.Log("Doi Sprite");
+        Debug.Log("Mo Ruong");
     }
 
-    public void PopKey()
-    {
-        //Instantiate(key, chest.transform.localScale, Quaternion.identity);
-    }
 }

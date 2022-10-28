@@ -19,11 +19,13 @@ public class CharacterBehaviourScript : MonoBehaviour
     TextMeshProUGUI coin;
     [SerializeField]
     ManaBar ManaBar;
+    [SerializeField]
+    TextMeshProUGUI coinShop;
 
     int countBloodItem = 0;
     int countManaItem = 0;
     int countKeyItem = 0;
-    int countCoin = 0;
+    int countCoin = 50; //test
 
     public float _health;
 
@@ -77,6 +79,7 @@ public class CharacterBehaviourScript : MonoBehaviour
         bloodItem.text = "X " + countBloodItem;
         manaItem.text = "X " + countManaItem;
         coin.text = "X " + countCoin;
+        coinShop.text = "X " + countCoin;
         keyItem.text = "X " + countKeyItem;
 
         //USING ITEMS
@@ -267,6 +270,11 @@ public class CharacterBehaviourScript : MonoBehaviour
             Destroy(collision.gameObject);
             countKeyItem += 1;
         }
+        if (collision.gameObject.tag == "Chest")
+        {
+            var chest = collision.gameObject.GetComponent<Chest>();
+            chest.textPress.enabled = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -288,6 +296,24 @@ public class CharacterBehaviourScript : MonoBehaviour
         {
             var chest = collision.gameObject.GetComponent<Chest>();
             chest.textPress.enabled = false;
+        }
+    }
+
+    public void BuyBloodItem()
+    {
+        if (countCoin >= 10)
+        {
+            countCoin -= 10;
+            countBloodItem += 1;
+        }
+    }
+
+    public void BuyManaItem()
+    {
+        if (countCoin >= 5)
+        {
+            countCoin -= 5;
+            countManaItem += 1;
         }
     }
 
