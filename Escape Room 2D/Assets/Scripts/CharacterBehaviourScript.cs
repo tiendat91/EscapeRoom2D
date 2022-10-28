@@ -82,7 +82,11 @@ public class CharacterBehaviourScript : MonoBehaviour
         //USING ITEMS
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("Using blood item");
+            if (countBloodItem > 0)
+            {
+                countBloodItem -= 1;
+                BuffBlood();
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -115,6 +119,11 @@ public class CharacterBehaviourScript : MonoBehaviour
         //Press R to open chest
 
 
+    }
+
+    void BuffBlood()
+    {
+        damageableCharacter.BuffBlood(1);
     }
 
     void SetSkillUp()
@@ -175,6 +184,7 @@ public class CharacterBehaviourScript : MonoBehaviour
                 Debug.Log("Nhan mo ruong");
             }
         }
+
 
 
     }

@@ -38,7 +38,6 @@ public class ManaBar : MonoBehaviour
 
     public void SetManaValue(float time)
     {
-        Debug.Log(time);
         slider.value = time;
     }
 

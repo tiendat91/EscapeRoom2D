@@ -24,23 +24,28 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
     public bool _targetable = true;
     public bool _invincible = true;
 
+    float MaxHealth;
+
     public float Health
     {
         set
         {
             //when health is dropped (new value less than old value), play hit animation and show damage taken as text
-            if (value > _health)
+            if (value < _health)
             {
                 animator.SetTrigger("hit");
 
-                //Spawn damage text right above the character
-                RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
-                textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                ////Spawn damage text right above the character
+                //RectTransform textTransform = Instantiate(healthText).GetComponent<RectTransform>();
+                //textTransform.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
-                Canvas canvas = GameObject.FindObjectOfType<Canvas>();
-                textTransform.SetParent(canvas.transform);
+                //Canvas canvas = GameObject.FindObjectOfType<Canvas>();
+                //textTransform.SetParent(canvas.transform);
             }
-            animator.SetTrigger("hit");
+            if (value > _health)
+            {
+                //Dùng bình máu
+            }
             _health = value;
             SetHealthBar(value);
 
@@ -54,8 +59,19 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
         {
             return _health;
         }
-
     }
+
+    public void BuffBlood(float blood)
+    {
+        Debug.Log("Using blood item");
+        if (Health < MaxHealth)
+        {
+            Health += blood;
+
+        }
+    }
+
+
     public bool Targetable
     {
         get { return _targetable; }
@@ -123,6 +139,7 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
     public void SetMaxHealth(float _health)
     {
         healthBar.SetMaxHealth(_health);
+        MaxHealth = _health;
     }
     public void SetHealthBar(float healthX)
     {
