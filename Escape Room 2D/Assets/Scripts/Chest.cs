@@ -36,7 +36,10 @@ public class Chest : MonoBehaviour
     public void ChestOpen()
     {
         spriteRenderer.sprite = newSprite;
-        key.SetActive(true);
+        if (key != null)
+        {
+            key.SetActive(true);
+        }
         Debug.Log("Doi Sprite");
     }
 
