@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DamageableCharacter : MonoBehaviour, IDamageable
 {
+    [SerializeField]
+    HealthBar healthBar;
+
     public GameObject healthText;
     public bool disableSimulation = false;
     public bool canTurnInvincible = false;
@@ -17,7 +20,7 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
     private float invincibleTimeElapsed = 0;
 
     //TEST
-    public float _health = 3;
+    public float _health;
     public bool _targetable = true;
     public bool _invincible = true;
 
@@ -37,10 +40,13 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
                 Canvas canvas = GameObject.FindObjectOfType<Canvas>();
                 textTransform.SetParent(canvas.transform);
             }
+            animator.SetTrigger("hit");
             _health = value;
+            SetHealthBar(value);
+
             if (_health <= 0)
             {
-                animator.SetBool("isAlive", false);
+                animator.SetBool("IsAlive", false);
                 Targetable = false;
             }
         }
@@ -79,21 +85,10 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
     //Take damage with knockback,
     public void OnHit(float damage, Vector2 knockback)
     {
-        if (!Invincible)
-        {
-            Health -= damage;
-
-            //Apply force to the slime
-            //Impulse for instantaneous forces
-            rigidbody.AddForce(knockback, ForceMode2D.Impulse);
-
-            if (canTurnInvincible)
-            {
-                //Activate Invincibility and timer
-                Invincible = true;
-            }
-
-        }
+        Health -= damage;
+        //Apply force to the slime
+        //Impulse for instantaneous forces
+        rigidbody.AddForce(knockback, ForceMode2D.Impulse);
     }
 
 
@@ -124,6 +119,14 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
         animator.SetBool("IsAlive", isAlive);
         rigidbody = GetComponent<Rigidbody2D>();
         physicsCollider = GetComponent<Collider2D>();
+    }
+    public void SetMaxHealth(float _health)
+    {
+        healthBar.SetMaxHealth(_health);
+    }
+    public void SetHealthBar(float healthX)
+    {
+        healthBar.SetHealth(healthX);
     }
 
     void Update()

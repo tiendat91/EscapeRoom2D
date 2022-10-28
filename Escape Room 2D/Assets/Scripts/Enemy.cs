@@ -58,9 +58,14 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         animator.SetBool("IsAlive", isAlive);
-        healthBar.SetMaxHealth(health);
+        SetMaxHealth();
 
         damageableCharacter = GetComponent<DamageableCharacter>();
+    }
+
+    void SetMaxHealth()
+    {
+        healthBar.SetMaxHealth(health);
     }
 
     public void SetHealthBar(float healthX)
@@ -93,18 +98,18 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Va Cham");
 
         Collider2D collider = collision.collider;
-        IDamageable damageable = collider.GetComponent<IDamageable>();
+        DamageableCharacter damageable = collider.GetComponent<DamageableCharacter>();
         if (damageable != null)
         {
+            Debug.Log("Va Cham");
+
             //Offset for collision detection changes the direction where the force comes from
-            Vector2 direction = (collider.transform.position - transform.position).normalized;
+            Vector2 direction = (collider.transform.position - (transform.position) * -1).normalized;
 
             //Knockback is in direction of swordCollider towards collider
             Vector2 knockback = direction * knockbackForce;
-
             //After making sure the collider has a script that implements IDamageble, we can run the OnHit implementation and pass
             //our Vector2 force
             damageable.OnHit(damage, knockback);

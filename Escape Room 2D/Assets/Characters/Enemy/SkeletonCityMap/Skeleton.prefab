@@ -170,7 +170,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 6478102307924654256}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -1
   m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 10
@@ -371,6 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ce6d4bd45af7469c6cf946e291326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   healthText: {fileID: 0}
   disableSimulation: 0
   canTurnInvincible: 0

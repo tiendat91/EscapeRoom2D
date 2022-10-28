@@ -25,6 +25,8 @@ public class CharacterBehaviourScript : MonoBehaviour
     int countKeyItem = 0;
     int countCoin = 0;
 
+    public float _health;
+
     bool IsMoving
     {
         set
@@ -64,6 +66,11 @@ public class CharacterBehaviourScript : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         damageableCharacter = GetComponent<DamageableCharacter>();
+        SetHealthForCharacter();
+    }
+    void SetHealthForCharacter()
+    {
+        damageableCharacter.SetMaxHealth(_health);
     }
     private void Update()
     {
