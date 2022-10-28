@@ -177,15 +177,6 @@ public class CharacterBehaviourScript : MonoBehaviour
                 spriteRenderer.flipX = false;
             }
         }
-        if (inRangeOpenChest)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Debug.Log("Nhan mo ruong");
-            }
-        }
-
-
 
     }
 
@@ -276,16 +267,27 @@ public class CharacterBehaviourScript : MonoBehaviour
             Destroy(collision.gameObject);
             countKeyItem += 1;
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "Chest")
         {
-            inRangeOpenChest = true;
+            var chest = collision.gameObject.GetComponent<Chest>();
+            chest.textPress.enabled = true;
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                chest.ChestOpen();
+            }
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Chest")
         {
-            inRangeOpenChest = false;
+            var chest = collision.gameObject.GetComponent<Chest>();
+            chest.textPress.enabled = false;
         }
     }
 

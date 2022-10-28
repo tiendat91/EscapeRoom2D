@@ -10,11 +10,11 @@ public class Chest : MonoBehaviour
 {
     Animator animator;
     [SerializeField]
-    Canvas textPress;
+    public Canvas textPress;
     [SerializeField]
     Sprite newSprite;
-    [SerializeField]
-    UnityEvent _onTriggerEvent;
+    GameObject key;
+
 
     SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
@@ -30,26 +30,16 @@ public class Chest : MonoBehaviour
     {
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.R))
-        {
-            textPress.enabled = true;
-            ChestOpen();
-        }
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void ChestOpen()
     {
-        textPress.enabled = false;
-    }
-
-    void ChestOpen()
-    {
-        Debug.Log("Open Chest");
-        textPress.enabled = false;
         spriteRenderer.sprite = newSprite;
         Debug.Log("Doi Sprite");
+        PopKey();
+    }
 
+    public void PopKey()
+    {
+        //Instantiate(key, chest.transform.localScale, Quaternion.identity);
     }
 }
