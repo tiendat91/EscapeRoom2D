@@ -82,7 +82,6 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
             {
                 rigidbody.simulated = false;
             }
-
             physicsCollider.enabled = value;
         }
     }
@@ -95,6 +94,10 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
         set
         {
             _invincible = value;
+            if (_invincible)
+            {
+                invincibleTimeElapsed = 0f;
+            }
         }
     }
 
@@ -130,8 +133,6 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
     void Start()
     {
         animator = GetComponent<Animator>();
-
-        //Make sure the slime is alive at the start of its scipts
         animator.SetBool("IsAlive", isAlive);
         rigidbody = GetComponent<Rigidbody2D>();
         physicsCollider = GetComponent<Collider2D>();

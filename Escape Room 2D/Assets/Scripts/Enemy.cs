@@ -17,19 +17,13 @@ public class Enemy : MonoBehaviour
     public float damage = 1;
     public float moveSpeed = 500f;
     public float knockbackForce = 100f;
-
-    Animator animator;
     bool isAlive = true;
-
-    [SerializeField]
-    Rigidbody2D rigidbody;
-
-    [SerializeField]
-    GameObject bossPrefab;
-
+    Animator animator;
+    Rigidbody2D rb;
     public DamageableCharacter damageableCharacter;
-
+    [SerializeField]
     public DetectionZone detectionZone;
+    SpriteRenderer spriteRenderer;
 
     public float Health
     {
@@ -37,7 +31,6 @@ public class Enemy : MonoBehaviour
         {
             if (value < health)
             {
-                Debug.Log("Drop Blood");
                 animator.SetTrigger("hit");
             }
 
@@ -56,11 +49,11 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        damageableCharacter = GetComponent<DamageableCharacter>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator.SetBool("IsAlive", isAlive);
         SetMaxHealth();
-
-        damageableCharacter = GetComponent<DamageableCharacter>();
     }
 
     void SetMaxHealth()
@@ -86,13 +79,23 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        if (damageableCharacter.Targetable && detectionZone.detectedObjs.Count > 0)
+        if (detectionZone.detectedObjs.Count > 0)
         {
             Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
-
-            //Move towards detected object
-            rigidbody.AddForce(direction * moveSpeed * Time.deltaTime);
+            if (direction.x >= 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
+            rb.AddForce(direction * moveSpeed * Time.deltaTime);
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
     }
 
@@ -103,8 +106,6 @@ public class Enemy : MonoBehaviour
         DamageableCharacter damageable = collider.GetComponent<DamageableCharacter>();
         if (damageable != null)
         {
-            Debug.Log("Va Cham");
-
             //Offset for collision detection changes the direction where the force comes from
             Vector2 direction = (collider.transform.position - (transform.position) * -1).normalized;
 
@@ -112,17 +113,8 @@ public class Enemy : MonoBehaviour
             Vector2 knockback = direction * knockbackForce;
             //After making sure the collider has a script that implements IDamageble, we can run the OnHit implementation and pass
             //our Vector2 force
+            animator.SetTrigger("attack");
             damageable.OnHit(damage, knockback);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Chest")
-        {
-            Debug.Log("Nguoi dang cham vao ruong");
-        }
-    }
-
-
 }

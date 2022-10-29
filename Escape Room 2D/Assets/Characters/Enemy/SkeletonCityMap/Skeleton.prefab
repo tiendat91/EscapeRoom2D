@@ -353,10 +353,8 @@ MonoBehaviour:
   healthBar: {fileID: 7658938231051570559}
   health: 10
   damage: 1
-  moveSpeed: 10
+  moveSpeed: 400
   knockbackForce: 10
-  rigidbody: {fileID: 0}
-  bossPrefab: {fileID: 0}
   damageableCharacter: {fileID: 5249791864389563981}
   detectionZone: {fileID: 4919582220360182885}
 --- !u!114 &5249791864389563981

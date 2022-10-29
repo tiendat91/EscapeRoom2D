@@ -283,7 +283,7 @@ public class CharacterBehaviourScript : MonoBehaviour
         {
             var chest = collision.gameObject.GetComponent<Chest>();
             chest.textPress.enabled = true;
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKey(KeyCode.R))
             {
                 chest.ChestOpen();
             }
