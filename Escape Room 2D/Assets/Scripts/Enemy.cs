@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
     public DetectionZone detectionZone;
     SpriteRenderer spriteRenderer;
     public GameObject coin;
+    public GameObject bloodItem;
+    public GameObject manaItem;
     public float numberOfCoin = 1;
 
     public float Health
@@ -80,12 +82,22 @@ public class Enemy : MonoBehaviour
 
         //Tao vang
         Vector2 spawnPos = transform.position;
-
+        int percentDropItem = Random.Range(0, 100);
         for (int i = 0; i < numberOfCoin; i++)
         {
             spawnPos += Random.insideUnitCircle.normalized * 0.15f;
             Instantiate(coin, spawnPos, Quaternion.identity);
             Debug.Log("Tao vang");
+        }
+        if (percentDropItem > 0 && percentDropItem <= 10) //Ti le 10% ra mau
+        {
+            spawnPos += Random.insideUnitCircle.normalized * 0.15f;
+            Instantiate(bloodItem, spawnPos, Quaternion.identity);
+        }
+        if (percentDropItem > 10 && percentDropItem <= 35) //Ti le 25% ra mana
+        {
+            spawnPos += Random.insideUnitCircle.normalized * 0.15f;
+            Instantiate(manaItem, spawnPos, Quaternion.identity);
         }
     }
 
