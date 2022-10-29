@@ -357,6 +357,8 @@ MonoBehaviour:
   knockbackForce: 10
   damageableCharacter: {fileID: 5249791864389563981}
   detectionZone: {fileID: 4919582220360182885}
+  coin: {fileID: 6364131130278389768, guid: 0e3900f315e1d394d8a07c7814647128, type: 3}
+  numberOfCoin: 2
 --- !u!114 &5249791864389563981
 MonoBehaviour:
   m_ObjectHideFlags: 0

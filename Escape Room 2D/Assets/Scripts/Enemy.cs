@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.Layouts;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     public DetectionZone detectionZone;
     SpriteRenderer spriteRenderer;
+    public GameObject coin;
+    public float numberOfCoin = 1;
 
     public float Health
     {
@@ -74,7 +77,16 @@ public class Enemy : MonoBehaviour
     public void RemoveEnemy()
     {
         Destroy(gameObject);
-        Debug.Log("Destroyed");
+
+        //Tao vang
+        Vector2 spawnPos = transform.position;
+
+        for (int i = 0; i < numberOfCoin; i++)
+        {
+            spawnPos += Random.insideUnitCircle.normalized * 0.15f;
+            Instantiate(coin, spawnPos, Quaternion.identity);
+            Debug.Log("Tao vang");
+        }
     }
 
     private void FixedUpdate()
