@@ -79,24 +79,24 @@ public class Enemy : MonoBehaviour
         Debug.Log("Destroyed");
     }
 
-    private void FixedUpdate()
-    {
+    //private void FixedUpdate()
+    //{
 
-        if (damageableCharacter.Targetable && detectionZone.detectedObjs.Count > 0)
-        {
-            Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
+    //    if (damageableCharacter.Targetable && detectionZone.detectedObjs.Count > 0)
+    //    {
+    //        Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
 
-            //Move towards detected object
-            rigidbody.AddForce(direction * moveSpeed * Time.deltaTime);
-        }
-    }
+    //        //Move towards detected object
+    //        rigidbody.AddForce(direction * moveSpeed * Time.deltaTime);
+    //    }
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Va Cham");
 
         Collider2D collider = collision.collider;
-        IDamageable damageable = collider.GetComponent<IDamageable>();
+        MageDamageableCharacter damageable = collider.GetComponent<MageDamageableCharacter>();
         if (damageable != null)
         {
             //Offset for collision detection changes the direction where the force comes from
