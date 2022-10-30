@@ -24,8 +24,10 @@ public class CharacterBehaviourScript : MonoBehaviour
 
     int countBloodItem = 0;
     int countManaItem = 0;
-    int countKeyItem = 0;
+    public int countKeyItem = 0;
     int countCoin = 50; //test
+    public float TimeDisplayText = 3;
+    public bool TimerOnText = false;
 
     public float _health;
 
@@ -64,11 +66,14 @@ public class CharacterBehaviourScript : MonoBehaviour
 
     void Start()
     {
+        TimerOnText = true;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         damageableCharacter = GetComponent<DamageableCharacter>();
         SetHealthForCharacter();
+
+        DontDestroyOnLoad(gameObject);
     }
     void SetHealthForCharacter()
     {
@@ -88,6 +93,7 @@ public class CharacterBehaviourScript : MonoBehaviour
             if (countBloodItem > 0)
             {
                 countBloodItem -= 1;
+                CountTimeDisplay(bloodItem);
                 BuffBlood();
             }
         }
@@ -102,6 +108,7 @@ public class CharacterBehaviourScript : MonoBehaviour
                 ManaBar.TurnTimerOn();
                 SetSkillUp();
                 countManaItem -= 1;
+                CountTimeDisplay(manaItem);
             }
         }
 
@@ -120,8 +127,26 @@ public class CharacterBehaviourScript : MonoBehaviour
         }
 
         //Press R to open chest
+    }
 
+    void CountTimeDisplay(TextMeshProUGUI x)
+    {
+        //if (TimerOnText)
+        //{
 
+        //    if (TimeLeft > 0)
+        //    {
+        //        TimeLeft -= Time.deltaTime;
+        //        x.color = UnityEngine.Color.red;
+        //        x.fontSize *= 1.5f;
+        //    }
+        //    else
+        //    {
+        //        x.color = UnityEngine.Color.white;
+        //        x.fontSize /= 1.5f;
+        //        TimerOnText = false;
+        //    }
+        //}
     }
 
     void BuffBlood()
@@ -254,21 +279,27 @@ public class CharacterBehaviourScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             countManaItem += 1;
+            CountTimeDisplay(manaItem);
         }
         if (collision.gameObject.tag == "BloodItem")
         {
             Destroy(collision.gameObject);
             countBloodItem += 1;
+            CountTimeDisplay(bloodItem);
+
         }
         if (collision.gameObject.tag == "Coin")
         {
             Destroy(collision.gameObject);
             countCoin += 1;
+            CountTimeDisplay(coin);
+
         }
         if (collision.gameObject.tag == "Key")
         {
             Destroy(collision.gameObject);
             countKeyItem += 1;
+            CountTimeDisplay(keyItem);
         }
         if (collision.gameObject.tag == "Chest")
         {
@@ -276,6 +307,8 @@ public class CharacterBehaviourScript : MonoBehaviour
             chest.textPress.enabled = true;
         }
     }
+
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {

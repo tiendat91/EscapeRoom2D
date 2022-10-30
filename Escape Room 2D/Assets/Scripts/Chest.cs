@@ -40,7 +40,6 @@ public class Chest : MonoBehaviour
         {
             key.SetActive(true);
         }
-        Debug.Log("Mo Ruong");
     }
 
 }
