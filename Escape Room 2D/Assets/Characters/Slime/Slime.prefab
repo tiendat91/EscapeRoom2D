@@ -234,7 +234,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 3760980104031918870}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -1
   m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 10
@@ -477,7 +477,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -496,14 +496,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  health: 15
+  health: 5
   damage: 1
-  moveSpeed: 10
+  moveSpeed: 100
   knockbackForce: 100
-  rigidbody: {fileID: 0}
-  bossPrefab: {fileID: 0}
   damageableCharacter: {fileID: 2109974951874139270}
   detectionZone: {fileID: 4651564328482602836}
+  coin: {fileID: 6364131130278389768, guid: 0e3900f315e1d394d8a07c7814647128, type: 3}
+  bloodItem: {fileID: 7530702370451622526, guid: 489e8d260ccabb3438025a2ed7cffaea, type: 3}
+  manaItem: {fileID: 8392208480034544488, guid: 33f51feb492a91848b924581990bb982, type: 3}
+  numberOfCoin: 1
 --- !u!95 &3541621383731201227
 Animator:
   serializedVersion: 4
@@ -536,6 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ce6d4bd45af7469c6cf946e291326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   healthText: {fileID: 0}
   disableSimulation: 0
   canTurnInvincible: 0
