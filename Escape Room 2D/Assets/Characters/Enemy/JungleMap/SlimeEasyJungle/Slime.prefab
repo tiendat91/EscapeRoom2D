@@ -140,10 +140,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd9254dd1b9f114c9e09b7f9e5329fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 20875634709250076}
+  health: 15
   damage: 0
-  knockbackForce: 3
   moveSpeed: 500
+  knockbackForce: 3
+  mageDamageableCharacter: {fileID: 456703638828372260}
   detectionZone: {fileID: 5738123522235375061}
+  coin: {fileID: 6364131130278389768, guid: 0e3900f315e1d394d8a07c7814647128, type: 3}
+  bloodItem: {fileID: 7530702370451622526, guid: 489e8d260ccabb3438025a2ed7cffaea, type: 3}
+  manaItem: {fileID: 8392208480034544488, guid: 33f51feb492a91848b924581990bb982, type: 3}
+  numberOfCoin: 1
 --- !u!95 &1966105715627305416
 Animator:
   serializedVersion: 4

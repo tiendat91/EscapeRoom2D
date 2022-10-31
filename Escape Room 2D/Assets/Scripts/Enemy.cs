@@ -101,19 +101,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-    //private void FixedUpdate()
-    //{
 
-    //    if (damageableCharacter.Targetable && detectionZone.detectedObjs.Count > 0)
-    //    {
-    //        Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
-
-    //        //Move towards detected object
-    //        rigidbody.AddForce(direction * moveSpeed * Time.deltaTime);
-    //    }
-    //}
-=======
     private void FixedUpdate()
     {
         if (detectionZone.detectedObjs.Count > 0)
@@ -135,17 +123,13 @@ public class Enemy : MonoBehaviour
             animator.SetBool("IsMoving", false);
         }
     }
->>>>>>> main
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
         Collider2D collider = collision.collider;
-<<<<<<< HEAD
-        MageDamageableCharacter damageable = collider.GetComponent<MageDamageableCharacter>();
-=======
+
         DamageableCharacter damageable = collider.GetComponent<DamageableCharacter>();
->>>>>>> main
         if (damageable != null)
         {
             //Offset for collision detection changes the direction where the force comes from

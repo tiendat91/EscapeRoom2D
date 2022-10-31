@@ -7,8 +7,7 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
     [SerializeField]
     HealthBar healthBar;
 
-    Animator animator;
-    public float health = 8f;
+    public float health;
     public bool targetable = true;
     public bool invincible = true;
     public bool disableSimulation = false;
@@ -16,8 +15,10 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
     public float invincibilityTime = 0.25f;
     private float invincibleTimeElapsed = 0;
     bool isAlive = true;
+    Animator animator;
     public Rigidbody2D rb;
     Collider2D physicCollider;
+    float MaxHealth;
     public float Health
     {
         set
@@ -37,6 +38,16 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
         }
         get { return health; }
 
+    }
+
+    public void BuffBlood(float blood)
+    {
+        Debug.Log("Using blood item");
+        if (Health < MaxHealth)
+        {
+            Health += blood;
+
+        }
     }
 
     public bool Targetable
@@ -74,7 +85,6 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("IsAlive", isAlive);
         physicCollider = GetComponent<Collider2D>();
-        healthBar.SetMaxHealth(health);
     }
 
     public void SetHealthBar(float healthX)
@@ -112,6 +122,7 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
     {
         if (!Invincible)
         {
+            Debug.Log("hit run");
             Health -= damage;
 
             if (canTurnInvincible)
@@ -125,7 +136,7 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
 
     public void OnObjectDestroyed()
     {
-        Destroy(gameObject);
+        throw new System.NotImplementedException();
     }
 
     public void FixedUpdate()
@@ -139,5 +150,16 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
                 Invincible = false;
             }
         }
+    }
+
+    public void SetMaxHealth(float _health)
+    {
+        healthBar.SetMaxHealth(_health);
+        MaxHealth = _health;
+    }
+
+    void Update()
+    {
+
     }
 }
