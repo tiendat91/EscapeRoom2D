@@ -90,6 +90,8 @@ GameObject:
   - component: {fileID: 6251856880468227110}
   - component: {fileID: 4059295412250272825}
   - component: {fileID: 8404233754440052690}
+  - component: {fileID: 1157237124820248073}
+  - component: {fileID: 7141169314141731364}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Player
@@ -254,6 +256,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ea89f9216aad14d8506fe687bcc69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodItem: {fileID: 0}
+  manaItem: {fileID: 0}
+  keyItem: {fileID: 0}
+  coin: {fileID: 0}
+  ManaBar: {fileID: 0}
+  coinShop: {fileID: 0}
+  countKeyItem: 0
+  TimeDisplayText: 3
+  TimerOnText: 0
   moveSpeed: 1
   maxSpeed: 8
   idleFriction: 0.9
@@ -273,6 +284,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   swordAttack: {fileID: 6098947923182990949}
+  TimerOn: 0
 --- !u!95 &4059295412250272825
 Animator:
   serializedVersion: 4
@@ -313,3 +325,27 @@ MonoBehaviour:
   canTurnInvincible: 1
   invincibilityTime: 1
   rb: {fileID: 0}
+--- !u!114 &1157237124820248073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539173193798239642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48005bc8c1915444bb27fc6be6c6ec23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7141169314141731364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539173193798239642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8f0d21bbe5e7a46ada2d14af5941a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

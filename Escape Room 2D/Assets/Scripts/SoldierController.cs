@@ -68,6 +68,8 @@ public class SoldierController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         TimerOnText = true;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
