@@ -19,20 +19,25 @@ public class EnemySpawner2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int count = 0;
         //render enemy to each zone
         for(int i = 0; i < 4; i++)
         {
             int j = 0;
             while (j < totalNumberRenderPerZone)
             {
-                SpawnEnemy(i);
-                j++;
+                if (!CellHasCollider(SpawnEnemy(i)))
+                {
+                    Instantiate(prefabs, SpawnEnemy(i), Quaternion.identity);
+                    j++;
+                }
+            Debug.Log(count++);
             }
         }
         
     }
 
-    private void SpawnEnemy(int zone)
+    private Vector3 SpawnEnemy(int zone)
     {
         /**
          * Zone 0: Top left corner
@@ -60,6 +65,16 @@ public class EnemySpawner2 : MonoBehaviour
                 break;
         }
         spawnPosition = new Vector3(spawnPositionX, spawnPositionY, 0f);
-        Instantiate(prefabs, spawnPosition, Quaternion.identity);
+        return spawnPosition;
+    }
+
+    private bool CellHasCollider(Vector3 cellWorldPosition)
+    {
+        // Raycast at position
+        // If not null -> true
+        // Else -> false
+        var c = Physics2D.OverlapBox((Vector2)cellWorldPosition, new Vector2(1, 1), 0);
+
+        return c != null;
     }
 }

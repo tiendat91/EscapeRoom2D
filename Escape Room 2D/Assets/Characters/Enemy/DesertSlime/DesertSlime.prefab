@@ -499,6 +499,10 @@ MonoBehaviour:
   knockbackForce: 1
   moveSpeed: 100
   detectionZone: {fileID: 5616448331677603613}
+  coin: {fileID: 6364131130278389768, guid: 0e3900f315e1d394d8a07c7814647128, type: 3}
+  bloodItem: {fileID: 7530702370451622526, guid: 489e8d260ccabb3438025a2ed7cffaea, type: 3}
+  manaItem: {fileID: 8392208480034544488, guid: 33f51feb492a91848b924581990bb982, type: 3}
+  numberOfCoin: 1
 --- !u!95 &3823040838532825650
 Animator:
   serializedVersion: 4

@@ -47,7 +47,7 @@ public class SoldierController : MonoBehaviour
     public ContactFilter2D movementFilter;
     public SoldierSwordAttack swordAttack;
 
-    Vector2 movementInput;
+    Vector2 movementInput = Vector2.zero;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     Animator animator;

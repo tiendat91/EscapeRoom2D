@@ -19,6 +19,8 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
     bool isAlive = true;
     public Rigidbody2D rb;
     Collider2D physicCollider;
+
+    float maxHealth;
     public float Health
     {
         set
@@ -76,6 +78,7 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
         animator.SetBool("isAlive", isAlive);
         physicCollider = GetComponent<Collider2D>();
         healthBar.SetMaxHealth(health);
+        maxHealth = health;
     }
 
     public void SetHealthBar(float healthX)
@@ -92,27 +95,24 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
 
     public void OnHit(float damage, Vector2 knockback)
     {
+        Debug.Log("invisible");
         if (!Invincible)
         {
+            Debug.Log("attack");
             Health -= damage;
 
             //Apply force to the slime
             //Impulse for instantaneous forces
             rb.AddForce(knockback, ForceMode2D.Impulse);
-
-            if (canTurnInvincible)
-            {
-                //Activate Invincibility and timer
-                Invincible = true;
-            }
-
         }
     }
 
     public void OnHit(float damage)
     {
+        Debug.Log("invicible");
         if (!Invincible)
         {
+            Debug.Log("attack");
             Health -= damage;
 
             if (canTurnInvincible)
@@ -126,10 +126,10 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
 
     public void OnObjectDestroyed()
     {
-        Destroy(gameObject);
+        throw new System.NotImplementedException();
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         if (Invincible)
         {
@@ -139,6 +139,16 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
             {
                 Invincible = false;
             }
+        }
+    }
+
+    public void BuffBlood(float blood)
+    {
+        Debug.Log("Using blood item");
+        if (Health < maxHealth)
+        {
+            Health += blood;
+
         }
     }
 }
