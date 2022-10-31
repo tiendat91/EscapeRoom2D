@@ -127,7 +127,7 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
 
     public void OnObjectDestroyed()
     {
-        throw new System.NotImplementedException();
+        Destroy(gameObject);
     }
 
     void Start()
