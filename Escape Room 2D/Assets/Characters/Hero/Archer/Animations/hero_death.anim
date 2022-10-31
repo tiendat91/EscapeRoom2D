@@ -27,7 +27,7 @@ AnimationClip:
       value: {fileID: -704676613, guid: 360aee107a24c1c449b1c4ce4ba49883, type: 3}
     - time: 0.48333332
       value: {fileID: 1159794499, guid: 360aee107a24c1c449b1c4ce4ba49883, type: 3}
-    - time: 0.65
+    - time: 0.6666667
       value: {fileID: 1219369910, guid: 360aee107a24c1c449b1c4ce4ba49883, type: 3}
     attribute: m_Sprite
     path: 
@@ -58,7 +58,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666666
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -77,4 +77,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.6666667
+    functionName: OnObjectDestroyed
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

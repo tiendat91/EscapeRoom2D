@@ -22,6 +22,7 @@ public class CharacterBehaviourScript : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI coinShop;
 
+
     int countBloodItem = 0;
     int countManaItem = 0;
     public int countKeyItem = 0;
@@ -49,6 +50,7 @@ public class CharacterBehaviourScript : MonoBehaviour
     float TimeLeft;
     public bool TimerOn = false;
     bool inRangeOpenChest;
+    bool turnOffSkill;
 
 
     public ContactFilter2D movementFilter;
@@ -74,6 +76,9 @@ public class CharacterBehaviourScript : MonoBehaviour
         SetHealthForCharacter();
 
         DontDestroyOnLoad(gameObject);
+
+
+        turnOffSkill = false;
     }
     void SetHealthForCharacter()
     {
@@ -93,7 +98,6 @@ public class CharacterBehaviourScript : MonoBehaviour
             if (countBloodItem > 0)
             {
                 countBloodItem -= 1;
-                CountTimeDisplay(bloodItem);
                 BuffBlood();
             }
         }
@@ -101,14 +105,16 @@ public class CharacterBehaviourScript : MonoBehaviour
         {
             if (countManaItem > 0)
             {
-                Debug.Log("Using mana item");
-                ManaBar.SetTimeMana(10);
-                TimeLeft = 10;
-                TimerOn = true;
-                ManaBar.TurnTimerOn();
-                SetSkillUp();
-                countManaItem -= 1;
-                CountTimeDisplay(manaItem);
+                if (turnOffSkill == false) //het tgian moi cho tang skill
+                {
+                    Debug.Log("Using mana item");
+                    ManaBar.SetTimeMana(5); //5s su dung skill
+                    TimeLeft = 5;
+                    TimerOn = true;
+                    ManaBar.TurnTimerOn();
+                    SetSkillUp();
+                    countManaItem -= 1;
+                }
             }
         }
 
@@ -122,31 +128,11 @@ public class CharacterBehaviourScript : MonoBehaviour
             else
             {
                 TimerOn = false;
+                turnOffSkill = false;
                 SetSkillDown();
             }
         }
 
-        //Press R to open chest
-    }
-
-    void CountTimeDisplay(TextMeshProUGUI x)
-    {
-        //if (TimerOnText)
-        //{
-
-        //    if (TimeLeft > 0)
-        //    {
-        //        TimeLeft -= Time.deltaTime;
-        //        x.color = UnityEngine.Color.red;
-        //        x.fontSize *= 1.5f;
-        //    }
-        //    else
-        //    {
-        //        x.color = UnityEngine.Color.white;
-        //        x.fontSize /= 1.5f;
-        //        TimerOnText = false;
-        //    }
-        //}
     }
 
     void BuffBlood()
@@ -160,6 +146,7 @@ public class CharacterBehaviourScript : MonoBehaviour
         gameObject.transform.localScale = new Vector2(1.4f, 1.4f);
         moveSpeed = (float)(moveSpeed * 1.5);
         swordAttack.damage = 4;
+        turnOffSkill = true;
     }
 
     public void SetSkillDown()
@@ -279,27 +266,23 @@ public class CharacterBehaviourScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             countManaItem += 1;
-            CountTimeDisplay(manaItem);
         }
         if (collision.gameObject.tag == "BloodItem")
         {
             Destroy(collision.gameObject);
             countBloodItem += 1;
-            CountTimeDisplay(bloodItem);
 
         }
         if (collision.gameObject.tag == "Coin")
         {
             Destroy(collision.gameObject);
             countCoin += 1;
-            CountTimeDisplay(coin);
 
         }
         if (collision.gameObject.tag == "Key")
         {
             Destroy(collision.gameObject);
             countKeyItem += 1;
-            CountTimeDisplay(keyItem);
         }
         if (collision.gameObject.tag == "Chest")
         {
