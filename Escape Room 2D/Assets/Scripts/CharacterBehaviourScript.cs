@@ -21,6 +21,8 @@ public class CharacterBehaviourScript : MonoBehaviour
     ManaBar ManaBar;
     [SerializeField]
     TextMeshProUGUI coinShop;
+    [SerializeField]
+    GameOver gameOver;
 
     int countBloodItem = 0;
     int countManaItem = 0;

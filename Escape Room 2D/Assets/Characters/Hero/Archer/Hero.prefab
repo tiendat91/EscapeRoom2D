@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5955694721017764961}
   - component: {fileID: 9171386824031214029}
   - component: {fileID: 8456898030972372438}
+  - component: {fileID: 2974010667295034861}
   - component: {fileID: 569107610323502372}
   - component: {fileID: 2214045653955591075}
-  - component: {fileID: 2974010667295034861}
   - component: {fileID: 1884789359190627998}
   m_Layer: 0
   m_Name: Hero
@@ -139,6 +139,10 @@ MonoBehaviour:
   coin: {fileID: 0}
   ManaBar: {fileID: 0}
   coinShop: {fileID: 0}
+  gameOver: {fileID: 0}
+  countKeyItem: 0
+  TimeDisplayText: 3
+  TimerOnText: 0
   _health: 0
   moveSpeed: 1.2
   maxSpeed: 8
@@ -161,6 +165,27 @@ MonoBehaviour:
     maxNormalAngle: 0
   swordAttack: {fileID: 7330363083502437042}
   damageableCharacter: {fileID: 2974010667295034861}
+--- !u!114 &2974010667295034861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195183067203534862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824ce6d4bd45af7469c6cf946e291326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  gameOver: {fileID: 0}
+  healthText: {fileID: 0}
+  disableSimulation: 0
+  canTurnInvincible: 0
+  invincibilityTime: 0.25
+  _health: 3
+  _targetable: 1
+  _invincible: 1
 --- !u!50 &569107610323502372
 Rigidbody2D:
   serializedVersion: 4
@@ -202,26 +227,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2974010667295034861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195183067203534862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 824ce6d4bd45af7469c6cf946e291326, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  healthText: {fileID: 0}
-  disableSimulation: 0
-  canTurnInvincible: 0
-  invincibilityTime: 0.25
-  _health: 3
-  _targetable: 1
-  _invincible: 1
 --- !u!61 &1884789359190627998
 BoxCollider2D:
   m_ObjectHideFlags: 0
