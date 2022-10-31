@@ -294,7 +294,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 70
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -350,9 +350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26fe77908e8d9348886f56a0b189696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0.5
-  knockbackForce: 10
-  moveSpeed: 500
+  damage: 1
+  knockbackForce: 1
+  moveSpeed: 400
   detectionZone: {fileID: 4402973689067054008}
 --- !u!114 &8310677120718557225
 MonoBehaviour:
@@ -369,7 +369,10 @@ MonoBehaviour:
   healthBar: {fileID: 7424481110347097751}
   health: 5
   targetable: 1
+  invincible: 1
   disableSimulation: 0
+  canTurnInvincible: 0
+  invincibilityTime: 0.25
   rb: {fileID: 0}
 --- !u!1 &5103320941094103843
 GameObject:

@@ -1,10 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class SoldierController : MonoBehaviour
 {
+
+    [SerializeField]
+    TextMeshProUGUI bloodItem;
+    [SerializeField]
+    TextMeshProUGUI manaItem;
+    [SerializeField]
+    TextMeshProUGUI keyItem;
+    [SerializeField]
+    TextMeshProUGUI coin;
+    [SerializeField]
+    ManaBar ManaBar;
+    [SerializeField]
+    TextMeshProUGUI coinShop;
+
+    int countBloodItem = 0;
+    int countManaItem = 0;
+    public int countKeyItem = 0;
+    int countCoin = 50; //test
+    public float TimeDisplayText = 3;
+    public bool TimerOnText = false;
+
     bool IsMoving
     {
         set
@@ -33,12 +57,106 @@ public class SoldierController : MonoBehaviour
     bool canMove = true;
     bool isMoving = false;
 
+    float TimeLeft;
+    public bool TimerOn = false;
+    bool inRangeOpenChest;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        TimerOnText = true;
+    }
+
+    private void Update()
+    {
+        bloodItem.text = "X " + countBloodItem;
+        manaItem.text = "X " + countManaItem;
+        coin.text = "X " + countCoin;
+        coinShop.text = "X " + countCoin;
+        keyItem.text = "X " + countKeyItem;
+
+        //USING ITEMS
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (countBloodItem > 0)
+            {
+                countBloodItem -= 1;
+                CountTimeDisplay(bloodItem);
+                BuffBlood();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (countManaItem > 0)
+            {
+                Debug.Log("Using mana item");
+                ManaBar.SetTimeMana(10);
+                TimeLeft = 10;
+                TimerOn = true;
+                ManaBar.TurnTimerOn();
+                SetSkillUp();
+                countManaItem -= 1;
+                CountTimeDisplay(manaItem);
+            }
+        }
+
+        //Count time using mana
+        if (TimerOn)
+        {
+            if (TimeLeft > 0)
+            {
+                TimeLeft -= Time.deltaTime;
+            }
+            else
+            {
+                TimerOn = false;
+                SetSkillDown();
+            }
+        }
+    }
+
+    void CountTimeDisplay(TextMeshProUGUI x)
+    {
+        //if (TimerOnText)
+        //{
+
+        //    if (TimeLeft > 0)
+        //    {
+        //        TimeLeft -= Time.deltaTime;
+        //        x.color = UnityEngine.Color.red;
+        //        x.fontSize *= 1.5f;
+        //    }
+        //    else
+        //    {
+        //        x.color = UnityEngine.Color.white;
+        //        x.fontSize /= 1.5f;
+        //        TimerOnText = false;
+        //    }
+        //}
+    }
+
+    void BuffBlood()
+    {
+        //damageableCharacter.BuffBlood(1);
+    }
+
+    void SetSkillUp()
+    {
+        spriteRenderer.color = UnityEngine.Color.yellow;
+        gameObject.transform.localScale = new Vector2(1.4f, 1.4f);
+        moveSpeed = (float)(moveSpeed * 1.5);
+        swordAttack.damage = 4;
+    }
+
+    public void SetSkillDown()
+    {
+        spriteRenderer.color = UnityEngine.Color.white;
+        gameObject.transform.localScale = new Vector2(1.2f, 1.2f);
+        moveSpeed = (float)(moveSpeed / 1.5);
+        swordAttack.damage = 2;
     }
 
     private void FixedUpdate()
@@ -141,5 +259,82 @@ public class SoldierController : MonoBehaviour
     public void UnlockMovement()
     {
         canMove = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ManaItem")
+        {
+            Destroy(collision.gameObject);
+            countManaItem += 1;
+            CountTimeDisplay(manaItem);
+        }
+        if (collision.gameObject.tag == "BloodItem")
+        {
+            Destroy(collision.gameObject);
+            countBloodItem += 1;
+            CountTimeDisplay(bloodItem);
+
+        }
+        if (collision.gameObject.tag == "Coin")
+        {
+            Destroy(collision.gameObject);
+            countCoin += 1;
+            CountTimeDisplay(coin);
+
+        }
+        if (collision.gameObject.tag == "Key")
+        {
+            Destroy(collision.gameObject);
+            countKeyItem += 1;
+            CountTimeDisplay(keyItem);
+        }
+        if (collision.gameObject.tag == "Chest")
+        {
+            var chest = collision.gameObject.GetComponent<Chest>();
+            chest.textPress.enabled = true;
+        }
+    }
+
+
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Chest")
+        {
+            var chest = collision.gameObject.GetComponent<Chest>();
+            chest.textPress.enabled = true;
+            if (Input.GetKey(KeyCode.R))
+            {
+                chest.ChestOpen();
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Chest")
+        {
+            var chest = collision.gameObject.GetComponent<Chest>();
+            chest.textPress.enabled = false;
+        }
+    }
+
+    public void BuyBloodItem()
+    {
+        if (countCoin >= 10)
+        {
+            countCoin -= 10;
+            countBloodItem += 1;
+        }
+    }
+
+    public void BuyManaItem()
+    {
+        if (countCoin >= 5)
+        {
+            countCoin -= 5;
+            countManaItem += 1;
+        }
     }
 }
