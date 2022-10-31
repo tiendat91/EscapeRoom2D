@@ -101,6 +101,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     private void FixedUpdate()
     {
         if (detectionZone.detectedObjs.Count > 0)
@@ -127,6 +128,7 @@ public class Enemy : MonoBehaviour
     {
 
         Collider2D collider = collision.collider;
+
         DamageableCharacter damageable = collider.GetComponent<DamageableCharacter>();
         if (damageable != null)
         {
