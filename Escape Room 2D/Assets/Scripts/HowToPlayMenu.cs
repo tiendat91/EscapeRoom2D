@@ -15,14 +15,14 @@ public class HowToPlayMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPaused)
-        {
-            ResumeGame();
-        }
-        else
-        {
-            PauseGame();
-        }
+        //if (isPaused)
+        //{
+        //    ResumeGame();
+        //}
+        //else
+        //{
+        //    PauseGame();
+        //}
     }
     public void PauseGame()
     {
