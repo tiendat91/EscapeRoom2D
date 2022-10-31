@@ -30,7 +30,6 @@ public class ManaBar : MonoBehaviour
             else
             {
                 TimerOn = false;
-                hero.SetSkillDown();
             }
 
         }
@@ -39,7 +38,6 @@ public class ManaBar : MonoBehaviour
 
     public void SetManaValue(float time)
     {
-        Debug.Log(time);
         slider.value = time;
     }
 

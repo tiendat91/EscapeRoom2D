@@ -135,10 +135,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bloodItem: {fileID: 0}
   manaItem: {fileID: 0}
+  keyItem: {fileID: 0}
   coin: {fileID: 0}
   ManaBar: {fileID: 0}
-  moveSpeed: 1
+  coinShop: {fileID: 0}
+  _health: 0
+  moveSpeed: 1.2
+  maxSpeed: 8
+  idleFriction: 0.9
   collisionOffset: 0.05
+  TimerOn: 0
   movementFilter:
     useTriggers: 0
     useLayerMask: 0
@@ -154,8 +160,6 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   swordAttack: {fileID: 7330363083502437042}
-  maxSpeed: 8
-  idleFriction: 0.9
   damageableCharacter: {fileID: 2974010667295034861}
 --- !u!50 &569107610323502372
 Rigidbody2D:
@@ -210,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ce6d4bd45af7469c6cf946e291326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   healthText: {fileID: 0}
   disableSimulation: 0
   canTurnInvincible: 0

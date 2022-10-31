@@ -16,6 +16,7 @@ public class DetectionZone : MonoBehaviour
             detectedObjs.Add(collision);
         }
     }
+
     //Detect when object leaves range
     private void OnTriggerExit2D(Collider2D collision)
     {
