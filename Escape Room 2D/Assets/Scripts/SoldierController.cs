@@ -68,8 +68,6 @@ public class SoldierController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         TimerOnText = true;
-
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -226,11 +224,6 @@ public class SoldierController : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
-    }
-
-    void OnFire()
-    {
-        animator.SetTrigger("swordAttack");
     }
 
     public void SwordAttack()

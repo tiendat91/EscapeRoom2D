@@ -6,6 +6,8 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
 {
     [SerializeField]
     HealthBar healthBar;
+    [SerializeField]
+    GameOver gameOver;
 
     public GameObject healthText;
     public bool disableSimulation = false;
@@ -127,7 +129,8 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
 
     public void OnObjectDestroyed()
     {
-        throw new System.NotImplementedException();
+        Destroy(gameObject);
+        gameOver.PauseGame();
     }
 
     void Start()

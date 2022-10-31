@@ -27,7 +27,8 @@ public class BossSpawner : MonoBehaviour
             int j = 0;
             while (j < totalNumberRenderPerZone)
             {
-                if (!CellHasCollider(GetRandomPosition(chests[i].transform.position)))
+                //if (!CellHasCollider(GetRandomPosition(chests[i].transform.position)))
+                if (true)
                 {
                     Instantiate(prefabs, GetRandomPosition(chests[i].transform.position), Quaternion.identity);
                     j++;
@@ -40,15 +41,14 @@ public class BossSpawner : MonoBehaviour
     {
         Vector3 randomDirection = new Vector3(Random.Range(-1,1), Random.Range(-1,1), 0f);
 
-        randomLength = Random.Range(1f, maxLength);
-        spawnPosition = (chestPos - randomDirection) * randomLength;
+        //randomLength = Random.Range(1f, maxLength);
+        //spawnPosition = (chestPos - randomDirection) * randomLength;
 
-        //do
-        //{
-        //    randomLength = Random.Range(1f, maxLength);
-        //    spawnPosition = (chestPos - randomDirection) * randomLength;
-        //} while (spawnPosition.x > rightMostX || spawnPosition.x < leftMostX
-        //        || spawnPosition.y > highestY || spawnPosition.y < lowestY);
+        do
+        {
+            randomLength = Random.Range(1f, maxLength);
+            spawnPosition = (chestPos - randomDirection) * randomLength;
+        } while (Vector3.Distance(spawnPosition, chestPos) > maxLength);
 
         return spawnPosition;
     }

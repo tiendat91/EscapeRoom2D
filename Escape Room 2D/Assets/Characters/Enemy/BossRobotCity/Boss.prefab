@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ce6d4bd45af7469c6cf946e291326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 5751901886193415850}
   healthText: {fileID: 0}
   disableSimulation: 0
   canTurnInvincible: 0

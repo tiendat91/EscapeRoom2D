@@ -69,7 +69,6 @@ public class SoldierSwordAttack : MonoBehaviour
 
             if (damageableCharacter != null)
             {
-                Debug.Log("soldier");
                 damageableCharacter.OnHit(damage);
             }
         }
