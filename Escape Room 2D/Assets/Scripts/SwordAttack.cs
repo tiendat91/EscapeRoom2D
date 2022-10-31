@@ -36,6 +36,8 @@ public class SwordAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Danh Quai");
+
         if (collision.tag == "Enemy")
         {
             //Deal damage to the enemy
@@ -46,6 +48,7 @@ public class SwordAttack : MonoBehaviour
                 Debug.Log("Hit");
                 enemy.SetHealthBar(enemy.Health);
 
+                Debug.Log("Danh Quai");
                 //knockback to enemy
                 Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
                 Vector2 direction = (Vector2)(parentPosition - collision.gameObject.transform.position).normalized;

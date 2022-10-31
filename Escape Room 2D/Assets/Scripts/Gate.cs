@@ -41,7 +41,6 @@ public class Gate : MonoBehaviour
                     Debug.Log("EndGame");
                 }
 
-
             }
         }
     }
