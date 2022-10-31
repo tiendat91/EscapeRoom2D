@@ -395,7 +395,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 50
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -451,10 +451,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26fe77908e8d9348886f56a0b189696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  knockbackForce: 10
+  damage: 2
+  knockbackForce: 1
   moveSpeed: 500
   detectionZone: {fileID: 3848321039099560303}
+  coin: {fileID: 6364131130278389768, guid: 0e3900f315e1d394d8a07c7814647128, type: 3}
+  bloodItem: {fileID: 7530702370451622526, guid: 489e8d260ccabb3438025a2ed7cffaea, type: 3}
+  manaItem: {fileID: 8392208480034544488, guid: 33f51feb492a91848b924581990bb982, type: 3}
+  numberOfCoin: 1
 --- !u!114 &2824727999008060591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,9 +472,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 6899013279602304712}
-  health: 10
+  health: 50
   targetable: 1
+  invincible: 1
   disableSimulation: 0
+  canTurnInvincible: 0
+  invincibilityTime: 0.25
   rb: {fileID: 0}
 --- !u!1 &6553520709781118016
 GameObject:
