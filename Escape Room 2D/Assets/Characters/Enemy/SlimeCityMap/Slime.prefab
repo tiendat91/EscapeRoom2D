@@ -124,7 +124,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 1
 --- !u!114 &4651564328482602836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,7 +498,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   health: 5
   damage: 1
-  moveSpeed: 100
+  moveSpeed: 300
   knockbackForce: 100
   damageableCharacter: {fileID: 2109974951874139270}
   detectionZone: {fileID: 4651564328482602836}
@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
+  gameOver: {fileID: 0}
   healthText: {fileID: 0}
   disableSimulation: 0
   canTurnInvincible: 0
