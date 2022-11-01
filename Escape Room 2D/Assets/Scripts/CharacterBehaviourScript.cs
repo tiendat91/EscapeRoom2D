@@ -75,8 +75,6 @@ public class CharacterBehaviourScript : MonoBehaviour
         damageableCharacter = GetComponent<DamageableCharacter>();
         SetHealthForCharacter();
 
-        DontDestroyOnLoad(gameObject);
-
 
         turnOffSkill = false;
     }
