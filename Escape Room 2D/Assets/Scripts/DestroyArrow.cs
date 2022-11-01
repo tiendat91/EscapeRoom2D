@@ -5,7 +5,7 @@ using UnityEngine;
 public class DestroyArrow : MonoBehaviour
 {
     public float timeBeforeDestroy;
-    public float damage = 0.1f;
+    public float damage;
 
     // Update is called once per frame
     void Update()

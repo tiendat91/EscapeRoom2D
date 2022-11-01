@@ -540,7 +540,7 @@ MonoBehaviour:
   healthBar: {fileID: 5751901886193415850}
   health: 50
   damage: 2
-  moveSpeed: 500
+  moveSpeed: 700
   knockbackForce: 1
   damageableCharacter: {fileID: 1031789401304427667}
   detectionZone: {fileID: 1535865286101812325}
