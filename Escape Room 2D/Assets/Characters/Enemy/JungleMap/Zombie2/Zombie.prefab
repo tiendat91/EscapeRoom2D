@@ -522,7 +522,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1056887281, guid: 345b57adea7fe0f4a9a664123d9aebaf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -604,9 +604,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 8067955415842200366}
-  health: 15
+  health: 10
   damage: 1
-  moveSpeed: 400
+  moveSpeed: 700
   knockbackForce: 10
   mageDamageableCharacter: {fileID: 6072352796709656900}
   detectionZone: {fileID: 4613501441456905857}
@@ -627,6 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 8067955415842200366}
+  gameOver: {fileID: 0}
   health: 10
   targetable: 1
   invincible: 1
@@ -695,6 +696,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015525818, y: 0.062104702}
+  m_Offset: {x: 0.06947199, y: 0.06210466}
   serializedVersion: 2
-  m_Radius: 0.5538678
+  m_Radius: 0.98542845
