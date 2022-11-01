@@ -80,10 +80,10 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
         SetMaxHealth(health);
     }
 
-    public void SetMaxHealth(float maxHealth)
+    public void SetMaxHealth(float _maxHealth)
     {
-        healthBar.SetMaxHealth(health);
-        maxHealth = health;
+        healthBar.SetMaxHealth(_maxHealth);
+        maxHealth = _maxHealth;
     }
 
     public void SetHealthBar(float healthX)
@@ -151,7 +151,6 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
 
     public void BuffBlood(float blood)
     {
-        Debug.Log("Using blood item");
         if (Health < maxHealth)
         {
             Health += blood;

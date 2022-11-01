@@ -22,10 +22,13 @@ public class SoldierController : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI coinShop;
 
+    [SerializeField]
+    GameOver gameOver;
+
     int countBloodItem = 0;
     int countManaItem = 0;
     public int countKeyItem = 0;
-    int countCoin = 50; //test
+    int countCoin = 20; //test
     public float TimeDisplayText = 3;
     public bool TimerOnText = false;
     public float health;
@@ -342,4 +345,11 @@ public class SoldierController : MonoBehaviour
             countManaItem += 1;
         }
     }
+
+    public void OnDeath()
+    {
+        gameOver.PauseGame();
+    }
+
+
 }

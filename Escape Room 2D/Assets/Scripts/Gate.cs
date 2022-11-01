@@ -40,46 +40,10 @@ public class Gate : MonoBehaviour
                 if (SceneManager.GetActiveScene().name == "JungleMap")
                 {
                     SceneManager.LoadScene("DesertMap", LoadSceneMode.Single);
-
-                    //Load properties
-                    player.transform.position = new Vector3(-15.744f, -11.131f, 0f);
-                    if (player.name == "Soldier")
-                    {
-                        player.GetComponent<SoldierController>().countKeyItem = 0;
-                    }
-                    else
-                    {
-                        player.GetComponent<CharacterBehaviourScript>().countKeyItem = 0;
-                    }
-                    CinemachineVirtualCamera cm = GetComponent<CinemachineVirtualCamera>();
-                    cm.Follow = player.transform;
-                    Camera.main.gameObject.TryGetComponent<CinemachineBrain>(out var brain);
-                    if (brain == null)
-                    {
-                        Camera.main.gameObject.AddComponent<CinemachineBrain>();
-                    }
                 }
                 else if (SceneManager.GetActiveScene().name == "DesertMap")
                 {
                     SceneManager.LoadScene("CityMap", LoadSceneMode.Single);
-
-                    //Load properties
-                    player.transform.position = new Vector3(-15.744f, -11.131f, 0f);
-                    if (player.name == "Soldier")
-                    {
-                        player.GetComponent<SoldierController>().countKeyItem = 0;
-                    }
-                    else
-                    {
-                        player.GetComponent<CharacterBehaviourScript>().countKeyItem = 0;
-                    }
-                    CinemachineVirtualCamera cm = GetComponent<CinemachineVirtualCamera>();
-                    cm.Follow = player.transform;
-                    Camera.main.gameObject.TryGetComponent<CinemachineBrain>(out var brain);
-                    if (brain == null)
-                    {
-                        Camera.main.gameObject.AddComponent<CinemachineBrain>();
-                    }
                 }
                 else if (SceneManager.GetActiveScene().name == "CityMap")
                 {
