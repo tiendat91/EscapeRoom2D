@@ -21,12 +21,14 @@ public class CharacterBehaviourScript : MonoBehaviour
     ManaBar ManaBar;
     [SerializeField]
     TextMeshProUGUI coinShop;
+    [SerializeField]
+    ArrowSkill arrowSkill;
 
 
     int countBloodItem = 0;
     int countManaItem = 0;
     public int countKeyItem = 0;
-    int countCoin = 50; //test
+    int countCoin = 20; //test
     public float TimeDisplayText = 3;
     public bool TimerOnText = false;
 
@@ -74,7 +76,6 @@ public class CharacterBehaviourScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         damageableCharacter = GetComponent<DamageableCharacter>();
         SetHealthForCharacter();
-
 
         turnOffSkill = false;
     }
@@ -130,7 +131,6 @@ public class CharacterBehaviourScript : MonoBehaviour
                 SetSkillDown();
             }
         }
-
     }
 
     void BuffBlood()
@@ -145,6 +145,7 @@ public class CharacterBehaviourScript : MonoBehaviour
         moveSpeed = (float)(moveSpeed * 1.5);
         swordAttack.damage = 4;
         turnOffSkill = true;
+        arrowSkill.UpDamage();
     }
 
     public void SetSkillDown()
@@ -153,6 +154,7 @@ public class CharacterBehaviourScript : MonoBehaviour
         gameObject.transform.localScale = new Vector2(1.2f, 1.2f);
         moveSpeed = (float)(moveSpeed / 1.5);
         swordAttack.damage = 2;
+        arrowSkill.DownDamage();
     }
 
     private void FixedUpdate()

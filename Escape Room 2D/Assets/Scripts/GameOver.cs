@@ -31,13 +31,14 @@ public class GameOver : MonoBehaviour
     }
     public void PlayAgain()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-        gameObject.SetActive(false);
         Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameObject.SetActive(false);
         isPaused = false;
     }
     public void BackToMenu()
     {
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
     }
 }
