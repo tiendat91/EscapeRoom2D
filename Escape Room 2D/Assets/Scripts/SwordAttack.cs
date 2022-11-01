@@ -30,7 +30,6 @@ public class SwordAttack : MonoBehaviour
     public void StopAttack()
     {
         swordCollider.enabled = false;
-
     }
 
 
