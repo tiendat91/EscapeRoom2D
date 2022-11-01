@@ -799,7 +799,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      socials_3_31: -284386233
+      socials_3_23: 37011822
       socials_3_1: 199060987
       socials_3_14: 1317245797
       socials_3_16: -1864177169
@@ -829,8 +829,8 @@ TextureImporter:
       socials_3_4: 994949042
       socials_3_10: 678799743
       socials_3_13: 1801079064
-      socials_3_23: 37011822
       socials_3_26: -1797003999
+      socials_3_31: -284386233
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
