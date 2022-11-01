@@ -9,9 +9,10 @@ public class Timer : MonoBehaviour
     public bool TimerOn = false;
 
     [SerializeField]
-    public TextMeshProUGUI timer;
+    GameOver gameOver;
+
     [SerializeField]
-    public GameOver gameOver;
+    public TextMeshProUGUI timer;
     // Start is called before the first frame update
     void Start()
     {

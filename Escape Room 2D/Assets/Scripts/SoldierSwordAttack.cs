@@ -54,7 +54,7 @@ public class SoldierSwordAttack : MonoBehaviour
 
     //        if (damageableCharacter != null)
     //        {
-    //            damageableCharacter.Health -= damage;
+    //            damageableCharacter.OnHit(damage);
     //        }
     //    }
     //}

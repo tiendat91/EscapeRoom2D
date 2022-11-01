@@ -19,6 +19,8 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
     bool isAlive = true;
     public Rigidbody2D rb;
     Collider2D physicCollider;
+
+    float maxHealth;
     public float Health
     {
         set
@@ -75,7 +77,13 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("isAlive", isAlive);
         physicCollider = GetComponent<Collider2D>();
-        healthBar.SetMaxHealth(health);
+        SetMaxHealth(health);
+    }
+
+    public void SetMaxHealth(float _maxHealth)
+    {
+        healthBar.SetMaxHealth(_maxHealth);
+        maxHealth = _maxHealth;
     }
 
     public void SetHealthBar(float healthX)
@@ -105,7 +113,6 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
                 //Activate Invincibility and timer
                 Invincible = true;
             }
-
         }
     }
 
@@ -126,7 +133,7 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
 
     public void OnObjectDestroyed()
     {
-        Destroy(gameObject);
+        throw new System.NotImplementedException();
     }
 
     public void FixedUpdate()
@@ -139,6 +146,15 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
             {
                 Invincible = false;
             }
+        }
+    }
+
+    public void BuffBlood(float blood)
+    {
+        if (Health < maxHealth)
+        {
+            Health += blood;
+
         }
     }
 }

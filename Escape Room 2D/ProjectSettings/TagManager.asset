@@ -9,6 +9,7 @@ TagManager:
   - ManaItem
   - BloodItem
   - Coin
+  - Interactable
   layers:
   - Default
   - TransparentFX
