@@ -35,4 +35,17 @@ public class SoundManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
+
+    public void PlayCityMap()
+    {
+
+    }
+    public void PlayDesertMap()
+    {
+
+    }
+    public void PlayJungleMap()
+    {
+
+    }
 }
