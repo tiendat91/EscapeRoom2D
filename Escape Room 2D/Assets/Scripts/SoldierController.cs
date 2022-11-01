@@ -28,6 +28,7 @@ public class SoldierController : MonoBehaviour
     int countCoin = 50; //test
     public float TimeDisplayText = 3;
     public bool TimerOnText = false;
+    public float health;
 
     bool IsMoving
     {
@@ -61,12 +62,16 @@ public class SoldierController : MonoBehaviour
     public bool TimerOn = false;
     bool inRangeOpenChest;
 
+    public DesertDamageableCharacter damageableCharacter;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        damageableCharacter = GetComponent<DesertDamageableCharacter>();
+        damageableCharacter.SetMaxHealth(health);
         TimerOnText = true;
     }
 
@@ -140,7 +145,7 @@ public class SoldierController : MonoBehaviour
 
     void BuffBlood()
     {
-        //damageableCharacter.BuffBlood(1);
+        damageableCharacter.BuffBlood(1);
     }
 
     void SetSkillUp()
@@ -238,6 +243,11 @@ public class SoldierController : MonoBehaviour
         {
             swordAttack.AttackRight();
         }
+    }
+
+    void OnFire()
+    {
+        animator.SetTrigger("swordAttack");
     }
 
     public void EndSwordAttack()

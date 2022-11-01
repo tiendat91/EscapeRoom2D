@@ -74,42 +74,19 @@ public class DesertEnemy : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            if (other.name == "Soldier")
+            //damage to player
+            DesertDamageableCharacter damageableCharacter = other.GetComponent<DesertDamageableCharacter>();
+
+            if (damageableCharacter != null)
             {
-                //damage to player
-                DesertDamageableCharacter damageableCharacter = other.GetComponent<DesertDamageableCharacter>();
+                //Offset for collision detection changes the direction where the force comes from
+                Vector2 direction = (other.transform.position - transform.position).normalized;
 
-                if (damageableCharacter != null)
-                {
-                    //Offset for collision detection changes the direction where the force comes from
-                    Vector2 direction = (other.transform.position - transform.position).normalized;
+                //Knockback is in direction of swordCollider towards collider
+                Vector2 knockback = direction * knockbackForce;
 
-                    //Knockback is in direction of swordCollider towards collider
-                    Vector2 knockback = direction * knockbackForce;
-
-                    animator.SetTrigger("attack");
-                    damageableCharacter.OnHit(damage, knockback);
-                }
-            }
-            else if (other.name == "Hero")
-            {
-                //damage to player
-                DamageableCharacter damageableCharacter = other.GetComponent<DamageableCharacter>();
-
-                if (damageableCharacter != null)
-                {
-                    //Offset for collision detection changes the direction where the force comes from
-                    Vector2 direction = (other.transform.position - transform.position).normalized;
-
-                    //Knockback is in direction of swordCollider towards collider
-                    Vector2 knockback = direction * knockbackForce;
-
-                    animator.SetTrigger("attack");
-                    damageableCharacter.OnHit(damage, knockback);
-                }
-            } else
-            {
-                //Mage
+                animator.SetTrigger("attack");
+                damageableCharacter.OnHit(damage, knockback);
             }
         }
     }

@@ -56,19 +56,4 @@ public class SwordAttack : MonoBehaviour
             }
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Collider2D other = collision.collider;
-        if (other.tag == "Enemy")
-        {
-            //damage to enemy
-            DesertDamageableCharacter damageableCharacter = other.GetComponent<DesertDamageableCharacter>();
-
-            if (damageableCharacter != null)
-            {
-                damageableCharacter.OnHit(damage);
-            }
-        }
-    }
 }

@@ -61,9 +61,11 @@ public class SoldierSwordAttack : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Cham");
         Collider2D other = collision.collider;
         if (other.tag == "Enemy")
         {
+            Debug.Log("cham enemy");
             //damage to enemy
             DesertDamageableCharacter damageableCharacter = other.GetComponent<DesertDamageableCharacter>();
 
@@ -73,4 +75,20 @@ public class SoldierSwordAttack : MonoBehaviour
             }
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    Debug.Log("cham");
+    //    if (other.tag == "Enemy")
+    //    {
+    //        Debug.Log("cham enemy");
+    //        //damage to enemy
+    //        DesertDamageableCharacter damageableCharacter = other.GetComponent<DesertDamageableCharacter>();
+
+    //        if (damageableCharacter != null)
+    //        {
+    //            damageableCharacter.OnHit(damage);
+    //        }
+    //    }
+    //}
 }
