@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6789862599395918422}
   - component: {fileID: -1042548807144509511}
   - component: {fileID: 1705472145148387209}
-  - component: {fileID: -2237789685115203989}
+  - component: {fileID: 8791705934460893567}
   m_Layer: 0
   m_Name: SpellPrefab
   m_TagString: Untagged
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1535472429, guid: e4dcfff66f857024f88594918c54fd6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -120,8 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e83f0d23170a040a376941952b4ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeDestroy: 0.8
---- !u!61 &-2237789685115203989
+  damage: 0.7
+  timeBeforeDestroy: 0.5
+--- !u!61 &8791705934460893567
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +135,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.031279013, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -145,5 +146,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18, y: 0.12}
+  m_Size: {x: 0.11744198, y: 0.12}
   m_EdgeRadius: 0

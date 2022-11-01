@@ -103,11 +103,11 @@ public class JungleEnemy : MonoBehaviour
             Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
             if (direction.x >= 0)
             {
-                spriteRenderer.flipX = true;
+                spriteRenderer.flipX = false;
             }
             else
             {
-                spriteRenderer.flipX = false;
+                spriteRenderer.flipX = true;
             }
             //Move towards detected object
             rb.AddForce(direction * moveSpeed * Time.deltaTime);
