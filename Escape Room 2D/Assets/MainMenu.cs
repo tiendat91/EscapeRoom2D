@@ -11,10 +11,6 @@ public class MainMenu : MonoBehaviour
     {
         gameObject.SetActive(true);
     }
-    public void PlayGame()
-    {
-        SceneManager.LoadScene("CityMap", LoadSceneMode.Single);
-    }
 
     // Update is called once per frame
     public void QuitGame()
@@ -31,5 +27,20 @@ public class MainMenu : MonoBehaviour
     public void AccessLinkGithub()
     {
         Application.OpenURL("https://github.com/tiendat91/EscapeRoom2DGameProject");
+    }
+    public void PlayCityMap()
+    {
+        SceneManager.LoadScene("CityMap", LoadSceneMode.Single);
+
+    }
+    public void PlayDesertMap()
+    {
+        SceneManager.LoadScene("DesertMap", LoadSceneMode.Single);
+
+    }
+    public void PlayJungleMap()
+    {
+        SceneManager.LoadScene("JungleMap", LoadSceneMode.Single);
+
     }
 }
