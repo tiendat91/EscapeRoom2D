@@ -48,7 +48,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 1.8
 --- !u!114 &1535865286101812325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,8 +540,8 @@ MonoBehaviour:
   healthBar: {fileID: 5751901886193415850}
   health: 50
   damage: 2
-  moveSpeed: 500
-  knockbackForce: 100
+  moveSpeed: 700
+  knockbackForce: 1
   damageableCharacter: {fileID: 1031789401304427667}
   detectionZone: {fileID: 1535865286101812325}
   coin: {fileID: 6364131130278389768, guid: 0e3900f315e1d394d8a07c7814647128, type: 3}
@@ -561,6 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 5751901886193415850}
+  gameOver: {fileID: 0}
   healthText: {fileID: 0}
   disableSimulation: 0
   canTurnInvincible: 0

@@ -353,7 +353,7 @@ MonoBehaviour:
   healthBar: {fileID: 7658938231051570559}
   health: 10
   damage: 1
-  moveSpeed: 400
+  moveSpeed: 600
   knockbackForce: 10
   damageableCharacter: {fileID: 5249791864389563981}
   detectionZone: {fileID: 4919582220360182885}
@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 7658938231051570559}
+  gameOver: {fileID: 0}
   healthText: {fileID: 0}
   disableSimulation: 0
   canTurnInvincible: 0
@@ -505,7 +506,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 2.2
 --- !u!114 &4919582220360182885
 MonoBehaviour:
   m_ObjectHideFlags: 0

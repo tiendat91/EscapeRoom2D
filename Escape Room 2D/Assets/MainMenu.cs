@@ -30,17 +30,17 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayCityMap()
     {
-        SceneManager.LoadScene("CityMap", LoadSceneMode.Single);
+        SceneManager.LoadScene("CityMap");
 
     }
     public void PlayDesertMap()
     {
-        SceneManager.LoadScene("DesertMap", LoadSceneMode.Single);
+        SceneManager.LoadScene("DesertMap");
 
     }
     public void PlayJungleMap()
     {
-        SceneManager.LoadScene("JungleMap", LoadSceneMode.Single);
+        SceneManager.LoadScene("JungleMap");
 
     }
 }
