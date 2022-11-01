@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class Gate : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField]
+    public GameObject gameOverWin;
     void Start()
     {
     }
@@ -25,22 +27,7 @@ public class Gate : MonoBehaviour
             var countkey = collision.gameObject.GetComponent<CharacterBehaviourScript>();
             if (countkey.countKeyItem == 3)
             {
-                Debug.Log("Qua man");
-                if (SceneManager.GetActiveScene().name == "JungleMap")
-                {
-                    SceneManager.LoadScene("DesertMap", LoadSceneMode.Single);
-                }
-                else if (SceneManager.GetActiveScene().name == "DesertMap")
-                {
-                    SceneManager.LoadScene("CityMap", LoadSceneMode.Single);
-                }
-                else if (SceneManager.GetActiveScene().name == "CityMap")
-                {
-                    SceneManager.LoadScene("JungleMap", LoadSceneMode.Single);
-
-                    Debug.Log("EndGame");
-                }
-
+                gameOverWin.SetActive(true);
             }
         }
     }

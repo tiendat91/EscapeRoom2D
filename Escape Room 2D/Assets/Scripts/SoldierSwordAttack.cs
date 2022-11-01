@@ -54,13 +54,14 @@ public class SoldierSwordAttack : MonoBehaviour
 
     //        if (damageableCharacter != null)
     //        {
-    //            damageableCharacter.Health -= damage;
+    //            damageableCharacter.OnHit(damage);
     //        }
     //    }
     //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Chem");
         Collider2D other = collision.collider;
         if (other.tag == "Enemy")
         {

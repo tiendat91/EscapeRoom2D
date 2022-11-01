@@ -9,6 +9,9 @@ public class Timer : MonoBehaviour
     public bool TimerOn = false;
 
     [SerializeField]
+    GameOver gameOver;
+
+    [SerializeField]
     public TextMeshProUGUI timer;
     // Start is called before the first frame update
     void Start()
@@ -30,8 +33,7 @@ public class Timer : MonoBehaviour
             {
                 Debug.Log("Time is up");
                 TimerOn = false;
-                Application.Quit();
-                UnityEditor.EditorApplication.isPlaying = false;
+                gameOver.PauseGame();
             }
             if (TimeLeft <= 20)
             {
