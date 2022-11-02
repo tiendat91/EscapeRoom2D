@@ -102,7 +102,6 @@ public class DesertEnemy : MonoBehaviour
         {
             spawnPos += Random.insideUnitCircle.normalized * 0.15f;
             Instantiate(coin, spawnPos, Quaternion.identity);
-            Debug.Log("Tao vang");
         }
         if (percentDropItem > 0 && percentDropItem <= 10) //Ti le 10% ra mau
         {
