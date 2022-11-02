@@ -156,7 +156,7 @@ public class SoldierController : MonoBehaviour
         spriteRenderer.color = UnityEngine.Color.yellow;
         gameObject.transform.localScale = new Vector2(1.4f, 1.4f);
         moveSpeed = (float)(moveSpeed * 1.5);
-        swordAttack.damage = 4;
+        swordAttack.damage *= 2;
     }
 
     public void SetSkillDown()
@@ -164,7 +164,7 @@ public class SoldierController : MonoBehaviour
         spriteRenderer.color = UnityEngine.Color.white;
         gameObject.transform.localScale = new Vector2(1.2f, 1.2f);
         moveSpeed = (float)(moveSpeed / 1.5);
-        swordAttack.damage = 2;
+        swordAttack.damage /= 2;
     }
 
     private void FixedUpdate()

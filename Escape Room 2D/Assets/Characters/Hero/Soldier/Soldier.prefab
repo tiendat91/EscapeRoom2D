@@ -260,10 +260,11 @@ MonoBehaviour:
   coin: {fileID: 0}
   ManaBar: {fileID: 0}
   coinShop: {fileID: 0}
+  gameOver: {fileID: 0}
   countKeyItem: 0
   TimeDisplayText: 3
   TimerOnText: 0
-  health: 0
+  health: 12
   moveSpeed: 1
   maxSpeed: 8
   idleFriction: 0.9
