@@ -10,8 +10,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
-    List<RaycastHit2D> castCollisions = new List<RaycastHit2D> ();
-    // Start is called before the first frame update
+    List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,13 +18,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(movementInput != Vector2.zero)
+        if (movementInput != Vector2.zero)
         {
             bool success = TryMove(movementInput);
-            if(!success)
+            if (!success)
             {
                 success = TryMove(new Vector2(movementInput.x, 0));
-                if(!success)
+                if (!success)
                 {
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
@@ -57,9 +56,8 @@ public class PlayerController : MonoBehaviour
         movementInput = movementValue.Get<Vector2>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

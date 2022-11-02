@@ -10,16 +10,13 @@ public class Timer : MonoBehaviour
 
     [SerializeField]
     GameOver gameOver;
-
     [SerializeField]
     public TextMeshProUGUI timer;
-    // Start is called before the first frame update
     void Start()
     {
         TimerOn = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (TimerOn)
@@ -31,7 +28,6 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time is up");
                 TimerOn = false;
                 gameOver.PauseGame();
             }

@@ -42,31 +42,12 @@ public class DesertEnemy : MonoBehaviour
             //Move towards detected object
             rb.AddForce(direction * moveSpeed * Time.deltaTime);
             animator.SetBool("isMoving", true);
-        } else
+        }
+        else
         {
             animator.SetBool("isMoving", false);
         }
     }
-
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.tag == "Player")
-    //    {
-    //        //damage to player
-    //        DesertDamageableCharacter damageableCharacter = other.GetComponent<DesertDamageableCharacter>();
-
-    //        if (damageableCharacter != null)
-    //        {
-    //            //Offset for collision detection changes the direction where the force comes from
-    //            Vector2 direction = (other.transform.position - transform.position).normalized;
-
-    //            //Knockback is in direction of swordCollider towards collider
-    //            Vector2 knockback = direction * knockbackForce;
-
-    //            damageableCharacter.OnHit(damage);
-    //        }
-    //    }
-    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -74,15 +55,11 @@ public class DesertEnemy : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            //damage to player
             DesertDamageableCharacter damageableCharacter = other.GetComponent<DesertDamageableCharacter>();
 
             if (damageableCharacter != null)
             {
-                //Offset for collision detection changes the direction where the force comes from
                 Vector2 direction = (other.transform.position - transform.position).normalized;
-
-                //Knockback is in direction of swordCollider towards collider
                 Vector2 knockback = direction * knockbackForce;
 
                 animator.SetTrigger("attack");
@@ -95,7 +72,6 @@ public class DesertEnemy : MonoBehaviour
     {
         Destroy(gameObject);
 
-        //Tao vang
         Vector2 spawnPos = transform.position;
         int percentDropItem = Random.Range(0, 100);
         for (int i = 0; i < numberOfCoin; i++)

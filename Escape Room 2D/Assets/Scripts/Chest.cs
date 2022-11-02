@@ -18,7 +18,6 @@ public class Chest : MonoBehaviour
 
 
     SpriteRenderer spriteRenderer;
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -27,12 +26,10 @@ public class Chest : MonoBehaviour
         key.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
 
     }
-
     public void ChestOpen()
     {
         spriteRenderer.sprite = newSprite;

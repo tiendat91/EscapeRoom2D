@@ -19,7 +19,6 @@ public class BossSpawner : MonoBehaviour
     Vector3 spawnPosition;
     float randomLength;
 
-    // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < chests.Count; i++)
@@ -27,7 +26,6 @@ public class BossSpawner : MonoBehaviour
             int j = 0;
             while (j < totalNumberRenderPerZone)
             {
-                //if (!CellHasCollider(GetRandomPosition(chests[i].transform.position)))
                 if (true)
                 {
                     Instantiate(prefabs, GetRandomPosition(chests[i].transform.position), Quaternion.identity);
@@ -39,10 +37,7 @@ public class BossSpawner : MonoBehaviour
 
     Vector3 GetRandomPosition(Vector3 chestPos)
     {
-        Vector3 randomDirection = new Vector3(Random.Range(-1,1), Random.Range(-1,1), 0f);
-
-        //randomLength = Random.Range(1f, maxLength);
-        //spawnPosition = (chestPos - randomDirection) * randomLength;
+        Vector3 randomDirection = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0f);
 
         do
         {
@@ -55,9 +50,6 @@ public class BossSpawner : MonoBehaviour
 
     private bool CellHasCollider(Vector3 cellWorldPosition)
     {
-        // Raycast at position
-        // If not null -> true
-        // Else -> false
         var c = Physics2D.OverlapBox((Vector2)cellWorldPosition, new Vector2(1, 1), 0);
 
         return c != null;

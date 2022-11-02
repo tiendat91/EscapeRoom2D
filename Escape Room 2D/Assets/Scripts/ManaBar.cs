@@ -35,7 +35,6 @@ public class ManaBar : MonoBehaviour
         }
     }
 
-
     public void SetManaValue(float time)
     {
         slider.value = time;
@@ -48,7 +47,6 @@ public class ManaBar : MonoBehaviour
         slider.value = seconds;
         slider.wholeNumbers = true;
     }
-
     public void TurnTimerOn()
     {
         TimerOn = true;

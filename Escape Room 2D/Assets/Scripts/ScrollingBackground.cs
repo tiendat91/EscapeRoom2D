@@ -10,11 +10,9 @@ public class ScrollingBackground : MonoBehaviour
     RawImage img;
     [SerializeField]
     float _x, _y;
-
     float TimeLeft = 5;
     float turn = 1f;
 
-    // Update is called once per frame
     void Update()
     {
         if (TimeLeft > 0)

@@ -8,7 +8,6 @@ public class DetectionZone : MonoBehaviour
     public List<Collider2D> detectedObjs = new List<Collider2D>();
     public Collider2D col;
 
-    //Detect when obejct enters range
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == tagTarget)
@@ -17,7 +16,6 @@ public class DetectionZone : MonoBehaviour
         }
     }
 
-    //Detect when object leaves range
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == tagTarget)

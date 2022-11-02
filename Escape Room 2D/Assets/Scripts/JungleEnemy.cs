@@ -18,12 +18,11 @@ public class JungleEnemy : MonoBehaviour
     Animator animator;
     public MageDamageableCharacter mageDamageableCharacter;
     public DetectionZone detectionZone;
-    SpriteRenderer spriteRenderer; 
+    SpriteRenderer spriteRenderer;
     public GameObject coin;
     public GameObject bloodItem;
     public GameObject manaItem;
     public float numberOfCoin = 1;
-
 
     public float Health
     {
@@ -82,7 +81,6 @@ public class JungleEnemy : MonoBehaviour
         {
             spawnPos += Random.insideUnitCircle.normalized * 0.15f;
             Instantiate(coin, spawnPos, Quaternion.identity);
-            Debug.Log("Tao vang");
         }
         if (percentDropItem > 0 && percentDropItem <= 10) //Ti le 10% ra mau
         {
@@ -126,15 +124,10 @@ public class JungleEnemy : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            //damage to player
             MageDamageableCharacter mageDamageableCharacter = other.GetComponent<MageDamageableCharacter>();
-
             if (mageDamageableCharacter != null)
             {
-                //Offset for collision detection changes the direction where the force comes from
                 Vector2 direction = (other.transform.position - transform.position).normalized;
-
-                //Knockback is in direction of swordCollider towards collider
                 Vector2 knockback = direction * knockbackForce;
 
                 animator.SetTrigger("attack");

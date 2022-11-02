@@ -16,11 +16,10 @@ public class EnemySpawner2 : MonoBehaviour
     Vector3 spawnPosition;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         //render enemy to each zone
-        for(int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
             int j = 0;
             while (j < totalNumberRenderPerZone)
@@ -32,7 +31,7 @@ public class EnemySpawner2 : MonoBehaviour
                 }
             }
         }
-        
+
     }
 
     private Vector3 SpawnEnemy(int zone)

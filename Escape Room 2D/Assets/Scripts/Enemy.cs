@@ -87,7 +87,6 @@ public class Enemy : MonoBehaviour
         {
             spawnPos += Random.insideUnitCircle.normalized * 0.15f;
             Instantiate(coin, spawnPos, Quaternion.identity);
-            Debug.Log("Tao vang");
         }
         if (percentDropItem > 0 && percentDropItem <= 10) //Ti le 10% ra mau
         {
@@ -133,13 +132,8 @@ public class Enemy : MonoBehaviour
             DamageableCharacter damageable = collider.GetComponent<DamageableCharacter>();
             if (damageable != null)
             {
-                //Offset for collision detection changes the direction where the force comes from
                 Vector2 direction = (collider.transform.position - (transform.position) * -1).normalized;
-
-                //Knockback is in direction of swordCollider towards collider
                 Vector2 knockback = direction * knockbackForce;
-                //After making sure the collider has a script that implements IDamageble, we can run the OnHit implementation and pass
-                //our Vector2 force
                 animator.SetTrigger("attack");
                 damageable.OnHit(damage, knockback);
             }

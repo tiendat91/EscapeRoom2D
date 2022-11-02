@@ -44,7 +44,6 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
 
     public void BuffBlood(float blood)
     {
-        Debug.Log("Using blood item");
         if (Health < MaxHealth)
         {
             Health += blood;
@@ -107,13 +106,10 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
         {
             Health -= damage;
 
-            //Apply force to the slime
-            //Impulse for instantaneous forces
             rb.AddForce(knockback, ForceMode2D.Impulse);
 
             if (canTurnInvincible)
             {
-                //Activate Invincibility and timer
                 Invincible = true;
             }
 
@@ -124,12 +120,10 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
     {
         if (!Invincible)
         {
-            Debug.Log("hit run");
             Health -= damage;
 
             if (canTurnInvincible)
             {
-                //Activate Invincibility and timer
                 Invincible = true;
             }
 

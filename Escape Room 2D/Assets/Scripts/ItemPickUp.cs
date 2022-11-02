@@ -9,14 +9,11 @@ public class ItemPickUp : MonoBehaviour
     Vector2 heroDirection;
     float timeStamp;
     bool flyToHero;
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 

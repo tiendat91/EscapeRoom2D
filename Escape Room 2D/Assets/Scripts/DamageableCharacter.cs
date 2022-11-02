@@ -21,7 +21,6 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
     bool isAlive = true;
     private float invincibleTimeElapsed = 0;
 
-    //TEST
     public float _health;
     public bool _targetable = true;
     public bool _invincible = true;
@@ -103,17 +102,13 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
         }
     }
 
-    //Take damage with knockback,
     public void OnHit(float damage, Vector2 knockback)
     {
         Health -= damage;
-        //Apply force to the slime
-        //Impulse for instantaneous forces
         rigidbody.AddForce(knockback, ForceMode2D.Impulse);
     }
 
 
-    //Take damgage without knockback
     public void OnHit(float damage)
     {
         if (!Invincible)
@@ -121,7 +116,6 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
             Health -= damage;
             if (canTurnInvincible)
             {
-                //Active invincibility and timer
                 Invincible = true;
             }
         }

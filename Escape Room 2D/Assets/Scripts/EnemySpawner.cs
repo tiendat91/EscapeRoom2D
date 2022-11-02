@@ -10,14 +10,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float spawnRadius = 3.5f, time = 1.5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(spawnEnemy());
     }
 
-    // Update is called once per frame
-    private IEnumerator  spawnEnemy()
+    private IEnumerator spawnEnemy()
     {
         Vector2 spawnPos = GameObject.Find("Hero").transform.position;
         spawnPos += Random.insideUnitCircle.normalized * spawnRadius;

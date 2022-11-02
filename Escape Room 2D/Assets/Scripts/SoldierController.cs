@@ -28,7 +28,7 @@ public class SoldierController : MonoBehaviour
     int countBloodItem = 0;
     int countManaItem = 0;
     public int countKeyItem = 0;
-    int countCoin = 20; //test
+    int countCoin = 20;
     public float TimeDisplayText = 3;
     public bool TimerOnText = false;
     public float health;
@@ -46,8 +46,6 @@ public class SoldierController : MonoBehaviour
     public float maxSpeed = 8f;
     public float idleFriction = 0.9f;
     public float collisionOffset = 0.05f;
-
-
     public ContactFilter2D movementFilter;
     public SoldierSwordAttack swordAttack;
 
@@ -55,19 +53,14 @@ public class SoldierController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     Animator animator;
-
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
-
     bool canMove = true;
     bool isMoving = false;
-
     float TimeLeft;
     public bool TimerOn = false;
     bool inRangeOpenChest;
-
     public DesertDamageableCharacter damageableCharacter;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -128,22 +121,7 @@ public class SoldierController : MonoBehaviour
 
     void CountTimeDisplay(TextMeshProUGUI x)
     {
-        //if (TimerOnText)
-        //{
 
-        //    if (TimeLeft > 0)
-        //    {
-        //        TimeLeft -= Time.deltaTime;
-        //        x.color = UnityEngine.Color.red;
-        //        x.fontSize *= 1.5f;
-        //    }
-        //    else
-        //    {
-        //        x.color = UnityEngine.Color.white;
-        //        x.fontSize /= 1.5f;
-        //        TimerOnText = false;
-        //    }
-        //}
     }
 
     void BuffBlood()
@@ -171,12 +149,10 @@ public class SoldierController : MonoBehaviour
     {
         if (canMove)
         {
-            //if movement input is not 0, try to move
             if (movementInput != Vector2.zero)
             {
                 bool success = TryMove(movementInput);
 
-                //nhan vat truot tren vat khi va cham -> movement more smoother 
                 if (!success && movementInput.x > 0)//xay ra collision thi di chuyen theo huong khac
                 {
                     success = TryMove(new Vector2(movementInput.x, 0));
@@ -192,7 +168,6 @@ public class SoldierController : MonoBehaviour
                 animator.SetBool("IsMoving", false);
             }
 
-            //Set direction of sprite to movement direction
             if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
@@ -209,10 +184,10 @@ public class SoldierController : MonoBehaviour
         if (direction != Vector2.zero)
         {
             int count = rb.Cast(
-                direction, //X and Y values between -1 and 1 that present the direction from the body to look for collision
-                movementFilter, //The settings that determine where a collision can occur on such as layers to collide with
-                castCollisions, //List of collisions to store the found collisions into after the cast is finished 
-                moveSpeed * Time.fixedDeltaTime + collisionOffset //the amount to cast equal to the movement plus an offset
+                direction,
+                movementFilter,
+                castCollisions,
+                moveSpeed * Time.fixedDeltaTime + collisionOffset
             );
 
             if (count == 0)

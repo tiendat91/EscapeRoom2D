@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class MageGate : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField]
     public GameObject gameOverWin;
     void Start()
     {
     }
 
-    // Update is called once per frame
     void Update()
     {
     }

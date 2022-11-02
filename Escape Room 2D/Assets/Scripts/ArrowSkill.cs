@@ -13,7 +13,6 @@ public class ArrowSkill : MonoBehaviour
     public float timeBetweenShots;
     private float nextFireTime = 0f;
 
-    // update is called once per frame
     void Update()
     {
         Vector2 mousePos = Input.mousePosition;

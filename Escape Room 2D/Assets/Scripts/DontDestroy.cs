@@ -21,11 +21,10 @@ public class DontDestroy : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Destroy the object when reach the final map
-        if (SceneManager.GetActiveScene().buildIndex  > 2)
+        if (SceneManager.GetActiveScene().buildIndex > 2)
         {
             Destroy(gameObject);
         }

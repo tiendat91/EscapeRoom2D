@@ -10,7 +10,6 @@ public class SpellMage : MonoBehaviour
     public Transform aimPoint;
     public float speed;
 
-    // update is called once per frame
     void Update()
     {
         Vector2 mousePos = Input.mousePosition;

@@ -24,7 +24,7 @@ public class MageController : MonoBehaviour
     int countBloodItem = 0;
     int countManaItem = 0;
     public int countKeyItem = 0;
-    int countCoin = 20; //test
+    int countCoin = 20;
     public float TimeDisplayText = 3;
     public bool TimerOnText = false;
 
@@ -64,7 +64,6 @@ public class MageController : MonoBehaviour
     bool canMove = true;
     bool isMoving = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         TimerOnText = true;
@@ -134,22 +133,7 @@ public class MageController : MonoBehaviour
 
     void CountTimeDisplay(TextMeshProUGUI x)
     {
-        //if (TimerOnText)
-        //{
 
-        //    if (TimeLeft > 0)
-        //    {
-        //        TimeLeft -= Time.deltaTime;
-        //        x.color = UnityEngine.Color.red;
-        //        x.fontSize *= 1.5f;
-        //    }
-        //    else
-        //    {
-        //        x.color = UnityEngine.Color.white;
-        //        x.fontSize /= 1.5f;
-        //        TimerOnText = false;
-        //    }
-        //}
     }
 
     void BuffBlood()
@@ -180,12 +164,10 @@ public class MageController : MonoBehaviour
     {
         if (canMove)
         {
-            //if movement input is not 0, try to move
             if (movementInput != Vector2.zero)
             {
                 bool success = TryMove(movementInput);
 
-                //nhan vat truot tren vat khi va cham -> movement more smoother 
                 if (!success && movementInput.x > 0)//xay ra collision thi di chuyen theo huong khac
                 {
                     success = TryMove(new Vector2(movementInput.x, 0));
@@ -201,7 +183,6 @@ public class MageController : MonoBehaviour
                 animator.SetBool("IsMoving", false);
             }
 
-            //Set direction of sprite to movement direction
             if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
@@ -219,10 +200,10 @@ public class MageController : MonoBehaviour
         if (direction != Vector2.zero)
         {
             int count = rb.Cast(
-                direction, //X and Y values between -1 and 1 that present the direction from the body to look for collision
-                movementFilter, //The settings that determine where a collision can occur on such as layers to collide with
-                castCollisions, //List of collisions to store the found collisions into after the cast is finished 
-                moveSpeed * Time.fixedDeltaTime + collisionOffset //the amount to cast equal to the movement plus an offset
+                direction,
+                movementFilter,
+                castCollisions,
+                moveSpeed * Time.fixedDeltaTime + collisionOffset
             );
 
             if (count == 0)

@@ -19,7 +19,6 @@ public class HealthText : MonoBehaviour
         startColor = textMeshPro.color;
     }
 
-    // Update is called once per frame
     void Update()
     {
         timeElapsed += Time.deltaTime;
