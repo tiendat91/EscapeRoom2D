@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1263893547584913405}
   - component: {fileID: 1263893547584913404}
   - component: {fileID: 4450450601783065775}
-  - component: {fileID: 632976105959218353}
   - component: {fileID: 9038639005562184890}
   - component: {fileID: 1966105715627305416}
   - component: {fileID: 456703638828372260}
+  - component: {fileID: 1655824356640940605}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -662342346, guid: beb1bfad59a2fc040b7c55af37f8231b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,35 +99,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263893547584913407}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 70
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &632976105959218353
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263893547584913407}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.012408893, y: -0.006069263}
-  m_Size: {x: 0.103451416, y: 0.103451416}
-  m_Direction: 0
 --- !u!114 &9038639005562184890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 20875634709250076}
+  gameOver: {fileID: 0}
   health: 8
   targetable: 1
   invincible: 1
@@ -191,6 +176,22 @@ MonoBehaviour:
   canTurnInvincible: 0
   invincibilityTime: 0.25
   rb: {fileID: 0}
+--- !u!58 &1655824356640940605
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263893547584913407}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.014755249, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.048948925
 --- !u!1 &1425352189910409577
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,9 +620,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008285662, y: 0.092522904}
+  m_Offset: {x: 0.012697856, y: 0.092522904}
   serializedVersion: 2
-  m_Radius: 0.0001
+  m_Radius: 0.34072748
 --- !u!1 &7147391532153722228
 GameObject:
   m_ObjectHideFlags: 0

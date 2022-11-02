@@ -6,6 +6,8 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
 {
     [SerializeField]
     HealthBar healthBar;
+    [SerializeField]
+    GameOver gameOver;
 
     public float health;
     public bool targetable = true;

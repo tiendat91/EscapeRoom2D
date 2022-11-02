@@ -22,7 +22,7 @@ public class MageController : MonoBehaviour
     int countBloodItem = 0;
     int countManaItem = 0;
     public int countKeyItem = 0;
-    int countCoin = 50; //test
+    int countCoin = 20; //test
     public float TimeDisplayText = 3;
     public bool TimerOnText = false;
 
