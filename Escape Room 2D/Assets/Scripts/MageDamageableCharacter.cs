@@ -138,7 +138,8 @@ public class MageDamageableCharacter : MonoBehaviour, IDamageable
 
     public void OnObjectDestroyed()
     {
-        throw new System.NotImplementedException();
+        Destroy(gameObject);
+        gameOver.PauseGame();
     }
 
     public void FixedUpdate()

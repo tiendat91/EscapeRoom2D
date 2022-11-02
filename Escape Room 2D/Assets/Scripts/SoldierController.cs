@@ -101,8 +101,8 @@ public class SoldierController : MonoBehaviour
             if (countManaItem > 0)
             {
                 Debug.Log("Using mana item");
-                ManaBar.SetTimeMana(10);
-                TimeLeft = 10;
+                ManaBar.SetTimeMana(5);
+                TimeLeft = 5;
                 TimerOn = true;
                 ManaBar.TurnTimerOn();
                 SetSkillUp();

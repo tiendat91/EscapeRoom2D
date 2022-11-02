@@ -18,6 +18,8 @@ public class MageController : MonoBehaviour
     ManaBar ManaBar;
     [SerializeField]
     TextMeshProUGUI coinShop;
+    [SerializeField]
+    SpellMage spellMage;
 
     int countBloodItem = 0;
     int countManaItem = 0;
@@ -40,6 +42,8 @@ public class MageController : MonoBehaviour
     float TimeLeft;
     public bool TimerOn = false;
     bool inRangeOpenChest;
+    bool turnOffSkill;
+
 
     public float moveSpeed = 0.8f;
     public float maxSpeed = 8f;
@@ -69,8 +73,6 @@ public class MageController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         mageDamageableCharacter = GetComponent<MageDamageableCharacter>();
         SetHealthForCharacter();
-
-        DontDestroyOnLoad(gameObject);
     }
 
     void SetHealthForCharacter()
@@ -100,14 +102,17 @@ public class MageController : MonoBehaviour
         {
             if (countManaItem > 0)
             {
-                Debug.Log("Using mana item");
-                ManaBar.SetTimeMana(10);
-                TimeLeft = 10;
-                TimerOn = true;
-                ManaBar.TurnTimerOn();
-                SetSkillUp();
-                countManaItem -= 1;
-                CountTimeDisplay(manaItem);
+                if (turnOffSkill == false) //het tgian moi cho tang skill
+                {
+                    Debug.Log("Using mana item");
+                    ManaBar.SetTimeMana(5);
+                    TimeLeft = 5;
+                    TimerOn = true;
+                    ManaBar.TurnTimerOn();
+                    SetSkillUp();
+                    countManaItem -= 1;
+                    CountTimeDisplay(manaItem);
+                }
             }
         }
 
@@ -121,11 +126,10 @@ public class MageController : MonoBehaviour
             else
             {
                 TimerOn = false;
+                turnOffSkill = false;
                 SetSkillDown();
             }
         }
-
-        //Press R to open chest
     }
 
     void CountTimeDisplay(TextMeshProUGUI x)
@@ -159,6 +163,8 @@ public class MageController : MonoBehaviour
         gameObject.transform.localScale = new Vector2(1.4f, 1.4f);
         moveSpeed = (float)(moveSpeed * 1.5);
         swordAttack.damage = 4;
+        turnOffSkill = true;
+        spellMage.UpDamage();
     }
 
     public void SetSkillDown()
@@ -167,6 +173,7 @@ public class MageController : MonoBehaviour
         gameObject.transform.localScale = new Vector2(1.2f, 1.2f);
         moveSpeed = (float)(moveSpeed / 1.5);
         swordAttack.damage = 2;
+        spellMage.DownDamage();
     }
 
     private void FixedUpdate()

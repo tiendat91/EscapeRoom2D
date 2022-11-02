@@ -107,7 +107,6 @@ MonoBehaviour:
   bulletPref: {fileID: 1566514854892648225, guid: 5b10feaab863a8f41a1fc95a1807b2db, type: 3}
   aimPoint: {fileID: 2091734506797187917}
   speed: 0.7
-  DelayTime: 1.2
 --- !u!114 &7277641600676666471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +308,7 @@ MonoBehaviour:
   coin: {fileID: 0}
   ManaBar: {fileID: 0}
   coinShop: {fileID: 0}
+  spellMage: {fileID: 5802800331252477831}
   countKeyItem: 0
   TimeDisplayText: 3
   TimerOnText: 0

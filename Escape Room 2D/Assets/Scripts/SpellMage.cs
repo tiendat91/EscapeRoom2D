@@ -24,13 +24,26 @@ public class SpellMage : MonoBehaviour
     }
     //float TimeToUse = 0;
     //public float DelayTime = 1;
+
+    public void UpDamage() //buff range, damage
+    {
+        bulletPref.GetComponent<DestroySpellMage>().damage = 1.5f;
+        bulletPref.GetComponent<DestroySpellMage>().timeBeforeDestroy = 1.5f;
+
+    }
+    public void DownDamage()
+    {
+        bulletPref.GetComponent<DestroySpellMage>().damage = 0.5f;
+        bulletPref.GetComponent<DestroySpellMage>().timeBeforeDestroy = 0.6f;
+    }
+
     void Shooting()
     {
         //if (Time.time > TimeToUse)
         //{
-            GameObject bullet = Instantiate(bulletPref, aimPoint.position, aimPoint.rotation);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(aimPoint.up * speed, ForceMode2D.Impulse);
+        GameObject bullet = Instantiate(bulletPref, aimPoint.position, aimPoint.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(aimPoint.up * speed, ForceMode2D.Impulse);
         //    TimeToUse = Time.time + DelayTime;
         //}
     }
