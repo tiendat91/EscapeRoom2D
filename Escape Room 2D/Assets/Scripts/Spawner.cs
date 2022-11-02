@@ -7,16 +7,13 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     GameObject prefabs;
 
-    // Spawn location support
     const int SpawnBorderSize = 50;
     int minSpawnX;
     int maxSpawnX;
     int minSpawnY;
     int maxSpawnY;
-
     float timer = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         minSpawnX = SpawnBorderSize;
@@ -26,7 +23,6 @@ public class Spawner : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (timer < 3)

@@ -104,13 +104,10 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
         {
             Health -= damage;
 
-            //Apply force to the slime
-            //Impulse for instantaneous forces
             rb.AddForce(knockback, ForceMode2D.Impulse);
 
             if (canTurnInvincible)
             {
-                //Activate Invincibility and timer
                 Invincible = true;
             }
         }
@@ -124,7 +121,6 @@ public class DesertDamageableCharacter : MonoBehaviour, IDamageable
 
             if (canTurnInvincible)
             {
-                //Activate Invincibility and timer
                 Invincible = true;
             }
 
