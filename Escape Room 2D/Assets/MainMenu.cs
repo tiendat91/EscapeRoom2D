@@ -12,18 +12,17 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        //Application.Quit();
     }
 
     public void AccessLinkFace()
     {
-        Application.OpenURL("https://www.facebook.com/datdat910");
+        //Application.OpenURL("https://www.facebook.com/datdat910");
     }
 
     public void AccessLinkGithub()
     {
-        Application.OpenURL("https://github.com/tiendat91/EscapeRoom2DGameProject");
+        //Application.OpenURL("https://github.com/tiendat91/EscapeRoom2DGameProject");
     }
     public void PlayCityMap()
     {
