@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -43,15 +43,15 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -61,16 +61,16 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
+  ignorePngGamma: 1
   applyGammaDecoding: 0
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -79,6 +79,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -90,7 +102,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c52a8990892ced1478c2f031272a8886
-      internalID: 1606270517
+      spriteID: 3529ea4d7474f47dbbd8d1db21b4b858
+      internalID: 1367805085
       vertices: []
       indices: 
       edges: []
@@ -140,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f4d00fca39a3c44a94996e226a69ccc
-      internalID: -1738674471
+      spriteID: 2032d5a00926049d2a8556bc518275b7
+      internalID: -636228043
       vertices: []
       indices: 
       edges: []
@@ -161,8 +185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34aa99734046d194581dbd59f46b51ad
-      internalID: -1499555883
+      spriteID: 67ee47d0f7b4b424ebeb7fe0f501c6eb
+      internalID: 524000968
       vertices: []
       indices: 
       edges: []
@@ -182,8 +206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b366d6f89c01947b5c3a00ce6b62bc
-      internalID: -719381600
+      spriteID: e523c9f1754e54e118dfc9cf23855f5a
+      internalID: -1008714594
       vertices: []
       indices: 
       edges: []
@@ -203,8 +227,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17cbbd312821f0446be3c7379f4fffc5
-      internalID: 617873848
+      spriteID: 4653491ae0b5a40e0a7fb236187720b0
+      internalID: 1465564363
       vertices: []
       indices: 
       edges: []
@@ -224,8 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05904c293a7f6b34da6584568820440f
-      internalID: -1176434566
+      spriteID: 1fcc6c42ee4544711936ffd838070140
+      internalID: -469695379
       vertices: []
       indices: 
       edges: []
@@ -241,12 +265,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Coin_Sparkle_5: -1176434566
-      Coin_Sparkle_1: -1738674471
-      Coin_Sparkle_0: 1606270517
-      Coin_Sparkle_3: -719381600
-      Coin_Sparkle_2: -1499555883
-      Coin_Sparkle_4: 617873848
+      Coin_Sparkle_5: -469695379
+      Coin_Sparkle_1: -636228043
+      Coin_Sparkle_0: 1367805085
+      Coin_Sparkle_3: -1008714594
+      Coin_Sparkle_2: 524000968
+      Coin_Sparkle_4: 1465564363
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

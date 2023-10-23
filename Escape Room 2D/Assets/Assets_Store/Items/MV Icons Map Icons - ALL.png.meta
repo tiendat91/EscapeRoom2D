@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -43,11 +43,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,6 +95,30 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -3169,9 +3193,9 @@ TextureImporter:
       MV Icons Map Icons - ALL_3: -1863424785
       MV Icons Map Icons - ALL_72: -671546695
       MV Icons Map Icons - ALL_139: -1550667232
-      MV Icons Map Icons - ALL_88: 1691627869
-      MV Icons Map Icons - ALL_107: 207460625
       MV Icons Map Icons - ALL_129: 1737389846
+      MV Icons Map Icons - ALL_107: 207460625
+      MV Icons Map Icons - ALL_88: 1691627869
       MV Icons Map Icons - ALL_46: 179957512
       MV Icons Map Icons - ALL_27: -967563651
       MV Icons Map Icons - ALL_39: 62238253
@@ -3214,8 +3238,8 @@ TextureImporter:
       MV Icons Map Icons - ALL_38: -912259749
       MV Icons Map Icons - ALL_100: -483556314
       MV Icons Map Icons - ALL_30: -972542943
-      MV Icons Map Icons - ALL_10: 41934024
       MV Icons Map Icons - ALL_104: -640855705
+      MV Icons Map Icons - ALL_10: 41934024
       MV Icons Map Icons - ALL_124: 630462674
       MV Icons Map Icons - ALL_19: -1006768750
       MV Icons Map Icons - ALL_64: 739327549
