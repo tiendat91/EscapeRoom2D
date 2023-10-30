@@ -63,7 +63,6 @@ public class HeroController : MonoBehaviour
         // Get the mouse position in world coordinates
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 playerToMouseDirection = (mousePosition - transform.position).normalized;
-        Debug.Log(playerToMouseDirection);
         animator.SetFloat("faceX", playerToMouseDirection.x);
         animator.SetFloat("faceY", playerToMouseDirection.y);
     }
