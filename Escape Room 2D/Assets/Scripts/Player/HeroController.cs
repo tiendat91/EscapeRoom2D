@@ -10,6 +10,12 @@ public class HeroController : MonoBehaviour
     public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
     private bool facingLeft = false;
 
+    /// <summary>
+    /// This check if player is attacking or not, compare to run and idle
+    /// </summary>
+    public bool IsAttack { get { return isAttack; } set { isAttack = value; } }
+    private bool isAttack = false;
+
     private PlayerControls playerControls;
     private Vector2 movement;
     private Rigidbody2D rb;
@@ -36,7 +42,10 @@ public class HeroController : MonoBehaviour
         AdjustPlayerFacingDirection();
         Move();
     }
-    //Read value from file C# Input Action
+
+    /// <summary>
+    /// Read value from file C# Input Action
+    /// </summary>
     private void PlayerInput()
     {
         movement = playerControls.Movements.Move.ReadValue<Vector2>();
@@ -44,28 +53,46 @@ public class HeroController : MonoBehaviour
         animator.SetFloat("moveY", movement.y);
 
         //Change animator states
-        if (movement != Vector2.zero)
+        if (!IsAttack)
         {
-            animator.Play("archer_run");
-        }
-        else
-        {
-            animator.Play("archer_idle");
+            if (movement != Vector2.zero)
+            {
+                animator.Play("archer_run");
+            }
+            else
+            {
+                animator.Play("archer_idle");
+            }
         }
     }
 
-    //Di chuyển nhân vật
+    /// <summary>
+    /// Move player position
+    /// </summary>
     private void Move()
     {
-        rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+        if (!IsAttack)
+        {
+            rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+        }
     }
 
-    //Hướng nhân vật theo mouse
-    private void AdjustPlayerFacingDirection()
+    /// <summary>
+    /// Get the mouse position in world coordinates
+    /// </summary>
+    private Vector2 GetMousePosition()
     {
-        // Get the mouse position in world coordinates
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 playerToMouseDirection = (mousePosition - transform.position).normalized;
+        return playerToMouseDirection;
+    }
+
+    /// <summary>
+    /// Move player's direction according to the mouse
+    /// </summary>
+    private void AdjustPlayerFacingDirection()
+    {
+        Vector2 playerToMouseDirection = GetMousePosition();
         animator.SetFloat("faceX", playerToMouseDirection.x);
         animator.SetFloat("faceY", playerToMouseDirection.y);
 
@@ -78,5 +105,17 @@ public class HeroController : MonoBehaviour
         {
             FacingLeft = false;
         }
+    }
+
+    /// <summary>
+    /// Trigger player attack
+    /// </summary>
+    public void SwordAttackAnimation()
+    {
+        IsAttack = true;
+        Vector2 playerToMouseDirection = GetMousePosition();
+        animator.SetFloat("faceX", playerToMouseDirection.x);
+        animator.SetFloat("faceY", playerToMouseDirection.y);
+        animator.Play("archer_sword");
     }
 }

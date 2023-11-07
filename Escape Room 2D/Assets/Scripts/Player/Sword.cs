@@ -32,7 +32,12 @@ public class Sword : MonoBehaviour
     }
     private void Attack()
     {
-        //Get player facing direction
+        //Swing sword animation
+        heroController.SwordAttackAnimation();
+        //Instantiate new sword slash
+        slashAnimation = Instantiate(slashPrefab, slashSpawnPoint.position, Quaternion.identity);
+        slashAnimation.transform.parent = this.transform.parent;
+        //Change weapon direction by hero direction
         if (heroController.FacingLeft)
         {
             slashAnimation.GetComponent<SpriteRenderer>().flipX = true;
@@ -41,15 +46,15 @@ public class Sword : MonoBehaviour
         {
             slashAnimation.GetComponent<SpriteRenderer>().flipX = false;
         }
-        myAnimator.SetTrigger("attack");
-        slashAnimation = Instantiate(slashPrefab, slashSpawnPoint.position, Quaternion.identity);
-        slashAnimation.transform.parent = this.transform.parent;
     }
+
+    /// <summary>
+    /// Adjust weapon direction according to the mouse
+    /// </summary>
     private void MouseFollowWithOffset()
     {
         Vector3 mousePosition = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(heroController.transform.position);
-
         float angle = Mathf.Atan2(Input.mousePosition.y, Input.mousePosition.x) * Mathf.Rad2Deg *2f;
         if(mousePosition.x <= playerScreenPoint.x)
         {

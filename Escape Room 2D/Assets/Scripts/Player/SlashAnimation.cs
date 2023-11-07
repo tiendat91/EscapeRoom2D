@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class SlashAnimation : MonoBehaviour
 {
- public void SelfDestroy()
+    public void SelfDestroy()
     {
         Destroy(gameObject);
+        //Ending player actack
+        GetComponentInParent<HeroController>().IsAttack = false;
     }
 }
