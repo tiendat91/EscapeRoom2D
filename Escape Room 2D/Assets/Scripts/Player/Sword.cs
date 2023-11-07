@@ -41,7 +41,7 @@ public class Sword : MonoBehaviour
         {
             slashAnimation.GetComponent<SpriteRenderer>().flipX = false;
         }
-        //myAnimator.SetTrigger("attack");
+        myAnimator.SetTrigger("attack");
         slashAnimation = Instantiate(slashPrefab, slashSpawnPoint.position, Quaternion.identity);
         slashAnimation.transform.parent = this.transform.parent;
     }

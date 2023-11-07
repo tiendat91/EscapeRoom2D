@@ -7,7 +7,7 @@ public class HeroController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float moveSpeed;
 
-    public bool FacingLeft { get { return facingLeft; } set { FacingLeft = value; } }
+    public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
     private bool facingLeft = false;
 
     private PlayerControls playerControls;
@@ -70,7 +70,7 @@ public class HeroController : MonoBehaviour
         animator.SetFloat("faceY", playerToMouseDirection.y);
 
         //Get player facing direction
-        if(playerToMouseDirection.x <= 0)
+        if (playerToMouseDirection.x <= 0)
         {
             FacingLeft = true;
         }
