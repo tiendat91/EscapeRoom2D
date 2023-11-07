@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: archer_attack_left
+  m_Name: archer_sword_downleft
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 80930221, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
+      value: {fileID: 2089641914, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
     - time: 0.11666667
-      value: {fileID: -1225805193, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
+      value: {fileID: 958554337, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
     - time: 0.21666667
-      value: {fileID: -168282740, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
+      value: {fileID: -1479813253, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
     - time: 0.33333334
-      value: {fileID: 661444632, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
+      value: {fileID: 318363430, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 80930221, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
-    - {fileID: -1225805193, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
-    - {fileID: -168282740, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
-    - {fileID: 661444632, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
+    - {fileID: 2089641914, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
+    - {fileID: 958554337, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
+    - {fileID: -1479813253, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
+    - {fileID: 318363430, guid: dad887ac3d8b644948f633c9d4f7332f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

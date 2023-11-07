@@ -7,6 +7,9 @@ public class HeroController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float moveSpeed;
 
+    public bool FacingLeft { get { return facingLeft; } set { FacingLeft = value; } }
+    private bool facingLeft = false;
+
     private PlayerControls playerControls;
     private Vector2 movement;
     private Rigidbody2D rb;
@@ -65,5 +68,15 @@ public class HeroController : MonoBehaviour
         Vector2 playerToMouseDirection = (mousePosition - transform.position).normalized;
         animator.SetFloat("faceX", playerToMouseDirection.x);
         animator.SetFloat("faceY", playerToMouseDirection.y);
+
+        //Get player facing direction
+        if(playerToMouseDirection.x <= 0)
+        {
+            FacingLeft = true;
+        }
+        else
+        {
+            FacingLeft = false;
+        }
     }
 }
