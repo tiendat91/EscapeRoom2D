@@ -10,6 +10,8 @@ public class HeroController : MonoBehaviour
     public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
     private bool facingLeft = false;
 
+    public static HeroController Instance;
+
     /// <summary>
     /// This check if player is attacking or not, compare to run and idle
     /// </summary>
@@ -28,6 +30,7 @@ public class HeroController : MonoBehaviour
     private Animator animator;
     private void Awake()
     {
+        Instance = this;
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
