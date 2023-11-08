@@ -14,7 +14,13 @@ public class HeroController : MonoBehaviour
     /// This check if player is attacking or not, compare to run and idle
     /// </summary>
     public bool IsAttack { get { return isAttack; } set { isAttack = value; } }
-    private bool isAttack = false;
+    private bool isAttack = true;
+
+    /// <summary>
+    /// This checks if the player can attack once at a time
+    /// </summary>
+    public bool CanAttackAgain { get { return canAttackAgain; } set { canAttackAgain = value; } }
+    private bool canAttackAgain = true;
 
     private PlayerControls playerControls;
     private Vector2 movement;
@@ -112,10 +118,10 @@ public class HeroController : MonoBehaviour
     /// </summary>
     public void SwordAttackAnimation()
     {
-        IsAttack = true;
-        Vector2 playerToMouseDirection = GetMousePosition();
-        animator.SetFloat("faceX", playerToMouseDirection.x);
-        animator.SetFloat("faceY", playerToMouseDirection.y);
-        animator.Play("archer_sword");
+            IsAttack = true;
+            Vector2 playerToMouseDirection = GetMousePosition();
+            animator.SetFloat("faceX", playerToMouseDirection.x);
+            animator.SetFloat("faceY", playerToMouseDirection.y);
+            animator.Play("archer_sword");
     }
 }
