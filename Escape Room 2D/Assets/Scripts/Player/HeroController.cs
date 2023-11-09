@@ -16,7 +16,7 @@ public class HeroController : MonoBehaviour
     /// This check if player is attacking or not, compare to run and idle
     /// </summary>
     public bool IsAttack { get { return isAttack; } set { isAttack = value; } }
-    private bool isAttack = true;
+    private bool isAttack = false;
 
     /// <summary>
     /// This checks if the player can attack once at a time
