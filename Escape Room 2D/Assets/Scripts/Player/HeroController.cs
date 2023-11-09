@@ -62,8 +62,6 @@ public class HeroController : MonoBehaviour
         animator.SetFloat("moveY", movement.y);
 
         //Change animator states
-        if (!IsAttack)
-        {
             if (movement != Vector2.zero)
             {
                 animator.Play("archer_run");
@@ -72,7 +70,6 @@ public class HeroController : MonoBehaviour
             {
                 animator.Play("archer_idle");
             }
-        }
     }
 
     /// <summary>
@@ -80,10 +77,7 @@ public class HeroController : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        if (!IsAttack)
-        {
             rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
-        }
     }
 
     /// <summary>
