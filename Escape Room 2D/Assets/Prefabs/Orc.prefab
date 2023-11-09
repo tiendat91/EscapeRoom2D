@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3456505349134178112}
   - component: {fileID: 6197906086594581929}
   - component: {fileID: 3740178610044912875}
+  - component: {fileID: 6476613637790020113}
   m_Layer: 0
   m_Name: Orc
   m_TagString: Untagged
@@ -186,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
+  deathVFXPrefab: {fileID: 3269133216045066578, guid: c1e512803d6c3433d94a01df9adf73bb, type: 3}
 --- !u!114 &3740178610044912875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +200,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b408320950a40668b704bd291b0f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockBackTime: 0.2
+--- !u!114 &6476613637790020113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3456505349134178142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1296fcf6c441b49959b63787bb8cd36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whiteFlashMat: {fileID: 2100000, guid: 08a943adc3e894fb285f5eb57089a07e, type: 2}
+  restoreDefaultMatTime: 0.1

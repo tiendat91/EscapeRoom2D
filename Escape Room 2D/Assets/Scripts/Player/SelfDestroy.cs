@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlashAnimation : MonoBehaviour
+public class SelfDestroy : MonoBehaviour
 {
-    public void SelfDestroy()
+    public void DestroySelf()
     {
         Destroy(gameObject);
         //Ending player attack
