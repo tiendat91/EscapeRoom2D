@@ -22,7 +22,6 @@ public class Knockback : MonoBehaviour
     {
         GettingKnockedBack = true;
         Vector2 difference = (transform.position - damageSource.position).normalized * knowBackThrust * rb.mass;
-        Debug.Log(HeroController.Instance.transform.position+"" +difference);
         rb.AddForce(difference, ForceMode2D.Impulse);
         StartCoroutine(KnockRoutine());
     }

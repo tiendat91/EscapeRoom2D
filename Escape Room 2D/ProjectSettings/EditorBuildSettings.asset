@@ -17,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CityMap.unity
     guid: 639d4712da25dd64098fdac9917a8ee4
+  - enabled: 1
+    path: Assets/Scenes/IslandMap.unity
+    guid: 17fd36f2bb3374de6b1df0840a42eb4b
+  - enabled: 1
+    path: Assets/Scenes/BeachMap.unity
+    guid: e8b1469d39fba491f8c13fe0d7327568
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: b41022f5373f14259bdd548a614dc902, type: 2}

@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroController : MonoBehaviour
+public class HeroController : Singleton<HeroController>
 {
     [Header("Settings")]
     [SerializeField] private float moveSpeed;
 
     public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
     private bool facingLeft = false;
-
-    public static HeroController Instance;
 
     /// <summary>
     /// This check if player is attacking or not, compare to run and idle
@@ -28,9 +26,8 @@ public class HeroController : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator animator;
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
