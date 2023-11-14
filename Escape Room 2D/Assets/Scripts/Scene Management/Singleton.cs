@@ -20,6 +20,9 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         {
             instance = (T)this;
         }
-        DontDestroyOnLoad(instance);
+        if (!gameObject.transform.parent)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

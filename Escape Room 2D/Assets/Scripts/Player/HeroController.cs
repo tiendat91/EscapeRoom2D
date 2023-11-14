@@ -28,6 +28,7 @@ public class HeroController : Singleton<HeroController>
     private Animator animator;
     protected override void Awake()
     {
+        base.Awake();
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();

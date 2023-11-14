@@ -10,7 +10,9 @@ public class AreaEntrance : MonoBehaviour
         if(transitionName == SceneMangement.Instance.SceneTransitionName)
         {
             HeroController.Instance.transform.position = this.transform.position;
-            Debug.Log("Da den vi tri");
+            CameraController.Instance.SetPlayerCameraFollow();
+
+            UIFade.Instance.FadeToClear();
         }
     }
 
