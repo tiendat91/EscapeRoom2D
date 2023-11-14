@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Sword : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject slashPrefab;
     [SerializeField] private Transform slashSpawnPoint;
     [SerializeField] private Transform weaponCollider;
 
-    private PlayerControls playerControls;
     private Animator myAnimator;
     private HeroController heroController;
     private ActiveWeapon activeWeapon;
@@ -18,26 +17,18 @@ public class Sword : MonoBehaviour
         heroController = GetComponentInParent<HeroController>();
         activeWeapon = GetComponentInParent<ActiveWeapon>();
         myAnimator = GetComponent<Animator>();
-        playerControls = new PlayerControls();
     }
     private void Update()
     {
         MouseFollowWithOffset();
         EnableColliderAttack();
     }
-    private void OnEnable()
-    {
-        playerControls.Enable();
-    }
-    private void Start()
-    {
-        playerControls.Combat.Attack.started += _ => Attack();
-    }
+
 
     /// <summary>
     /// Swing sword animation & Instantiate sword slash
     /// </summary>
-    private void Attack()
+    public void Attack()
     {
         //Instantiate new sword slash
         if (heroController.CanAttackAgain)
@@ -90,7 +81,6 @@ public class Sword : MonoBehaviour
         {
             activeWeapon.transform.rotation = Quaternion.Euler(0, 0, angle);
             weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
-
         }
     }
 }

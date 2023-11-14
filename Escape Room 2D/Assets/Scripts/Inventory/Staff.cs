@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelfDestroy : MonoBehaviour
+public class Staff : MonoBehaviour, IWeapon
 {
-    public void DestroySelfAnimationEvent()
+    public void Attack()
     {
-        Destroy(gameObject);
-        //Ending player attack
+        Debug.Log("Staff attack");
         ActiveWeapon.Instance.ToggleIsAttacking(false);
     }
 }
