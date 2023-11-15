@@ -6,6 +6,7 @@ public class HeroController : Singleton<HeroController>
 {
     [Header("Settings")]
     [SerializeField] private float moveSpeed;
+    [SerializeField] private Transform weaponCollider;
 
     public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
     private bool facingLeft = false;
@@ -48,6 +49,10 @@ public class HeroController : Singleton<HeroController>
     {
         AdjustPlayerFacingDirection();
         Move();
+    }
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
     }
 
     /// <summary>

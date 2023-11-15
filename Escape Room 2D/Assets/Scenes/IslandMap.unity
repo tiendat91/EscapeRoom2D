@@ -62608,6 +62608,7 @@ GameObject:
   - component: {fileID: 1023352222}
   - component: {fileID: 1023352224}
   - component: {fileID: 1023352223}
+  - component: {fileID: 1023352225}
   m_Layer: 5
   m_Name: Inventory Slot (4)
   m_TagString: Untagged
@@ -62675,6 +62676,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023352221}
   m_CullTransparentMesh: 1
+--- !u!114 &1023352225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023352221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7bec9fca8de43258cb830e8ed8fae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 0}
 --- !u!1 &1026000964
 GameObject:
   m_ObjectHideFlags: 0
@@ -84253,6 +84267,7 @@ GameObject:
   - component: {fileID: 1422620909}
   - component: {fileID: 1422620911}
   - component: {fileID: 1422620910}
+  - component: {fileID: 1422620912}
   m_Layer: 5
   m_Name: Inventory Slot (1)
   m_TagString: Untagged
@@ -84320,6 +84335,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422620908}
   m_CullTransparentMesh: 1
+--- !u!114 &1422620912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422620908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7bec9fca8de43258cb830e8ed8fae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 11400000, guid: 173c44165a73e4efeb8957df4dbd0da9, type: 2}
 --- !u!60 &1497234388 stripped
 PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 4257356959444306383, guid: ff2ff26dae95543138eac99cd87851b5, type: 3}
@@ -91152,6 +91180,7 @@ GameObject:
   - component: {fileID: 1741951674}
   - component: {fileID: 1741951676}
   - component: {fileID: 1741951675}
+  - component: {fileID: 1741951677}
   m_Layer: 5
   m_Name: Inventory Slot (3)
   m_TagString: Untagged
@@ -91219,6 +91248,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741951673}
   m_CullTransparentMesh: 1
+--- !u!114 &1741951677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741951673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7bec9fca8de43258cb830e8ed8fae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 0}
 --- !u!4 &1801139435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5798455737910395851, guid: 45974723716394c95bb676f1305f88fe, type: 3}
@@ -91359,6 +91401,7 @@ GameObject:
   - component: {fileID: 1888235258}
   - component: {fileID: 1888235260}
   - component: {fileID: 1888235259}
+  - component: {fileID: 1888235261}
   m_Layer: 5
   m_Name: Inventory Slot
   m_TagString: Untagged
@@ -91426,6 +91469,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888235257}
   m_CullTransparentMesh: 1
+--- !u!114 &1888235261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888235257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7bec9fca8de43258cb830e8ed8fae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 11400000, guid: 042d856266204473cb0f87957cbc4c3b, type: 2}
 --- !u!1 &1921947829
 GameObject:
   m_ObjectHideFlags: 0
@@ -91437,6 +91493,7 @@ GameObject:
   - component: {fileID: 1921947830}
   - component: {fileID: 1921947832}
   - component: {fileID: 1921947831}
+  - component: {fileID: 1921947833}
   m_Layer: 5
   m_Name: Inventory Slot (2)
   m_TagString: Untagged
@@ -91504,6 +91561,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921947829}
   m_CullTransparentMesh: 1
+--- !u!114 &1921947833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921947829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7bec9fca8de43258cb830e8ed8fae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 11400000, guid: 712179890d64c4d75965a86f9bcac168, type: 2}
 --- !u!1 &1976453595
 GameObject:
   m_ObjectHideFlags: 0
